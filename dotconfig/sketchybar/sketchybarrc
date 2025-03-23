@@ -21,7 +21,7 @@ default=(
   padding_left=5
   padding_right=5
   icon.font="BlexMono Nerd Font:Bold:11.0"
-  label.font="SF Pro:Semibold:10.0"
+  label.font="SF Pro:Semibold:12.0"
   icon.color=0xffffffff
   label.color=0xffffffff
   icon.padding_left=4
@@ -54,7 +54,7 @@ for sid in $(aerospace list-workspaces --monitor 1); do
     icon.padding_left=8 \
     icon.shadow.distance=2 \
     icon.shadow.color=0xA0000000 \
-    label.font="sketchybar-app-font:Regular:10.0" \
+    label.font="sketchybar-app-font:Regular:12.0" \
     label.padding_right=15 \
     label.padding_left=0 \
     label.y_offset=-1 \

@@ -695,7 +695,7 @@ function icon_map() {
     icon_result=":zed:"
     ;;
   "Zen")
-    icon_result=":zen_browser:"
+    icon_result=":firefox:"
     ;;
   "Zeplin")
     icon_result=":zeplin:"
