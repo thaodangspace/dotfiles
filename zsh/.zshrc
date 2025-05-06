@@ -106,7 +106,7 @@ source $ZSH/oh-my-zsh.sh
 eval "$(starship init zsh)"
 
 # Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/tdxng/.lmstudio/bin"
+export PATH="$PATH:$HOME/.lmstudio/bin"
 
 . "$HOME/.local/bin/env"
 #Rust cargo
