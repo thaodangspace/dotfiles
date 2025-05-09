@@ -5,4 +5,5 @@ stow -t ~/.config/sketchybar sketchybar
 stow -t ~ aerospace
 stow -t ~ zsh
 stow -t ~ wezterm
+stow -t ~ tmux
 ```
