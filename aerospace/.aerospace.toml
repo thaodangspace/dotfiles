@@ -1,8 +1,10 @@
 after-startup-command = ['exec-and-forget sketchybar']
 
 # Notify Sketchybar about workspace change
-exec-on-workspace-change = ['/bin/bash', '-c',
-    'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
+exec-on-workspace-change = [
+    '/bin/bash',
+    '-c',
+    'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE',
 ]
 start-at-login = true
 enable-normalization-flatten-containers = true
@@ -32,11 +34,11 @@ preset = 'qwerty'
 #                 See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
 inner.horizontal = 5
-inner.vertical =   5
-outer.left =       5
-outer.bottom =     5
-outer.top =        29
-outer.right =      5
+inner.vertical = 5
+outer.left = 5
+outer.bottom = 5
+outer.top = 29
+outer.right = 5
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -82,21 +84,25 @@ alt-shift-l = 'move right'
 alt-shift-minus = 'resize smart -50'
 alt-shift-equal = 'resize smart +50'
 
-alt-1 = 'workspace Whatever'
-alt-c = 'workspace Code'
-alt-b = 'workspace Browser'
-alt-p = 'workspace Personal'
-alt-m = 'workspace Chat'
-alt-n = 'workspace Notes'
-alt-t = 'workspace Terminal'
+alt-1 = 'workspace 1Browser'
+alt-2 = 'workspace 2Code'
+alt-3 = 'workspace 3Terminal'
+alt-4 = 'workspace 4Notes'
+alt-5 = 'workspace 5Chat'
+alt-6 = 'workspace 6Personal'
+alt-7 = 'workspace 7Space'
+alt-8 = 'workspace 8Space'
+alt-9 = 'workspace 9Space'
 
-alt-shift-1 = 'move-node-to-workspace Whatever'
-alt-shift-c = 'move-node-to-workspace Code'
-alt-shift-b = 'move-node-to-workspace Browser'
-alt-shift-p = 'move-node-to-workspace Personal'
-alt-shift-m = 'move-node-to-workspace Chat'
-alt-shift-n = 'move-node-to-workspace Notes'
-alt-shift-t = 'move-node-to-workspace Terminal'
+alt-shift-1 = 'move-node-to-workspace 1Browser'
+alt-shift-2 = 'move-node-to-workspace 2Code'
+alt-shift-3 = 'move-node-to-workspace 3Terminal'
+alt-shift-4 = 'move-node-to-workspace 4Notes'
+alt-shift-5 = 'move-node-to-workspace 5Chat'
+alt-shift-6 = 'move-node-to-workspace 6Personal'
+alt-shift-7 = 'move-node-to-workspace 7Space'
+alt-shift-8 = 'move-node-to-workspace 8Space'
+alt-shift-9 = 'move-node-to-workspace 9Space'
 
 #alt-tab = 'workspace-back-and-forth'
 #alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
@@ -110,7 +116,10 @@ alt-shift-semicolon = 'mode service'
 [mode.service.binding]
 esc = ['reload-config', 'mode main']
 r = ['flatten-workspace-tree', 'mode main'] # reset layout
-f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
+f = [
+    'layout floating tiling',
+    'mode main',
+] # Toggle between floating and tiling layout
 backspace = ['close-all-windows-but-current', 'mode main']
 
 alt-shift-h = ['join-with left', 'mode main']
@@ -126,51 +135,47 @@ p = ['exec-and-forget nowplaying-cli togglePlayPause', 'mode main']
 
 [[on-window-detected]]
 if.app-id = 'com.todesktop.230313mzl4w4u92'
-run = "move-node-to-workspace Code"
+run = "move-node-to-workspace 2Code"
 
 [[on-window-detected]]
 if.app-id = 'com.google.Chrome'
-run = "move-node-to-workspace Browser"
+run = "move-node-to-workspace 1Browser"
 
 [[on-window-detected]]
 if.app-id = 'com.github.wez.wezterm'
-run = "move-node-to-workspace Terminal"
+run = "move-node-to-workspace 3Terminal"
 
 [[on-window-detected]]
 if.app-id = 'com.apple.Safari'
-run = ["layout floating", "move-node-to-workspace Personal"]
-
-[[on-window-detected]]
-if.app-id = 'app.zen-browser.zen'
-run = ["layout floating", "move-node-to-workspace Personal"]
+run = ["layout floating", "move-node-to-workspace 6Personal"]
 
 [[on-window-detected]]
 if.app-id = 'com.tinyspeck.slackmacgap'
-run = ["layout floating", "move-node-to-workspace Chat"]
+run = ["layout floating", "move-node-to-workspace 5Chat"]
 
 [[on-window-detected]]
 if.app-id = 'ru.keepcoder.Telegram'
-run = ["layout floating", "move-node-to-workspace Chat"]
+run = ["layout floating", "move-node-to-workspace 5Chat"]
 
 [[on-window-detected]]
 if.app-id = 'com.vng.zalo'
-run = ["layout floating", "move-node-to-workspace Chat"]
+run = ["layout floating", "move-node-to-workspace 5Chat"]
 
 [[on-window-detected]]
 if.app-id = 'com.vsee.VSee'
-run = ["layout floating", "move-node-to-workspace Chat"]
+run = ["layout floating", "move-node-to-workspace 5Chat"]
 
 [[on-window-detected]]
 if.app-id = 'com.culturedcode.ThingsMac'
-run = ["layout floating", "move-node-to-workspace Notes"]
+run = ["layout floating", "move-node-to-workspace 4Notes"]
 
 [[on-window-detected]]
 if.app-id = 'md.obsidian'
-run = ["layout floating", "move-node-to-workspace Notes"]
+run = ["layout floating", "move-node-to-workspace 4Notes"]
 
 [[on-window-detected]]
 if.app-id = 'com.bitwarden.desktop'
-run = ["layout floating", "move-node-to-workspace Whatever"]
+run = ["layout floating", "move-node-to-workspace 7Space"]
 
 [[on-window-detected]]
 if.app-id = 'com.wulkano.kap'
