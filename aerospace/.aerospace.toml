@@ -154,11 +154,19 @@ if.app-id = 'com.tinyspeck.slackmacgap'
 run = ["layout floating", "move-node-to-workspace 5.Chat"]
 
 [[on-window-detected]]
-if.app-id = 'ru.keepcoder.Telegram'
+if.app-id = 'net.whatsapp.WhatsApp'
+run = ["layout floating", "move-node-to-workspace 5.Chat"]
+
+[[on-window-detected]]
+if.app-id = 'org.whispersystems.signal-desktop'
 run = ["layout floating", "move-node-to-workspace 5.Chat"]
 
 [[on-window-detected]]
 if.app-id = 'com.vng.zalo'
+run = ["layout floating", "move-node-to-workspace 5.Chat"]
+
+[[on-window-detected]]
+if.app-id = 'ru.keepcoder.Telegram'
 run = ["layout floating", "move-node-to-workspace 5.Chat"]
 
 [[on-window-detected]]
@@ -176,6 +184,10 @@ run = ["layout floating", "move-node-to-workspace 4.Note"]
 [[on-window-detected]]
 if.app-id = 'com.bitwarden.desktop'
 run = ["layout floating", "move-node-to-workspace 7"]
+
+[[on-window-detected]]
+if.app-id = 'org.chromium.Chromium'
+run = ["move-node-to-workspace 8"]
 
 [[on-window-detected]]
 if.app-id = 'com.wulkano.kap'
