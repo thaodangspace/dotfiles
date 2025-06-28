@@ -87,9 +87,9 @@ alt-shift-equal = 'resize smart +50'
 alt-1 = 'workspace 1.Browser'
 alt-2 = 'workspace 2.Code'
 alt-3 = 'workspace 3.Terminal'
-alt-4 = 'workspace 4.Note'
-alt-5 = 'workspace 5.Chat'
-alt-6 = 'workspace 6.Personal'
+alt-4 = 'workspace 4.Chat'
+alt-5 = 'workspace 5.Personal'
+alt-6 = 'workspace 6'
 alt-7 = 'workspace 7'
 alt-8 = 'workspace 8'
 alt-9 = 'workspace 9'
@@ -97,19 +97,21 @@ alt-9 = 'workspace 9'
 alt-shift-1 = 'move-node-to-workspace 1.Browser'
 alt-shift-2 = 'move-node-to-workspace 2.Code'
 alt-shift-3 = 'move-node-to-workspace 3.Terminal'
-alt-shift-4 = 'move-node-to-workspace 4.Note'
-alt-shift-5 = 'move-node-to-workspace 5.Chat'
-alt-shift-6 = 'move-node-to-workspace 6.Personal'
+alt-shift-4 = 'move-node-to-workspace 4.Chat'
+alt-shift-5 = 'move-node-to-workspace 5.Personal'
+alt-shift-6 = 'move-node-to-workspace 6'
 alt-shift-7 = 'move-node-to-workspace 7'
 alt-shift-8 = 'move-node-to-workspace 8'
 alt-shift-9 = 'move-node-to-workspace 9'
 
 #alt-tab = 'workspace-back-and-forth'
-#alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 # map new keys
 alt-shift-f = 'fullscreen'
 alt-shift-space = ['layout floating tiling', 'mode main']
-# alt-shift-enter = 'exec-and-forget /usr/local/bin/wezterm cli spawn --new-window'
+
+# Key binding to toggle Ghostty as floating on current workspace
+alt-t = 'exec-and-forget bash $HOME/.config/scripts/float_ghostty.sh'
 
 alt-shift-semicolon = 'mode service'
 
@@ -133,62 +135,47 @@ shift-down = ['volume set 0', 'mode main']
 
 p = ['exec-and-forget nowplaying-cli togglePlayPause', 'mode main']
 
-[[on-window-detected]]
-if.app-id = 'com.todesktop.230313mzl4w4u92'
-run = "move-node-to-workspace 2.Code"
 
 [[on-window-detected]]
 if.app-id = 'com.google.Chrome'
 run = "move-node-to-workspace 1.Browser"
 
 [[on-window-detected]]
-if.app-id = 'com.github.wez.wezterm'
-run = "move-node-to-workspace 3.Terminal"
+if.app-id = 'com.todesktop.230313mzl4w4u92'
+run = "move-node-to-workspace 2.Code"
 
+# Auto-float Ghostty windows when detected
 [[on-window-detected]]
-if.app-id = 'com.apple.Safari'
-run = ["layout floating", "move-node-to-workspace 6.Personal"]
+if.app-id = 'com.mitchellh.ghostty'
+run = ["layout floating", "move-node-to-workspace 3.Terminal"]
 
 [[on-window-detected]]
 if.app-id = 'com.tinyspeck.slackmacgap'
-run = ["layout floating", "move-node-to-workspace 5.Chat"]
-
-[[on-window-detected]]
-if.app-id = 'net.whatsapp.WhatsApp'
-run = ["layout floating", "move-node-to-workspace 5.Chat"]
-
-[[on-window-detected]]
-if.app-id = 'org.whispersystems.signal-desktop'
-run = ["layout floating", "move-node-to-workspace 5.Chat"]
+run = ["layout floating", "move-node-to-workspace 4.Chat"]
 
 [[on-window-detected]]
 if.app-id = 'com.vng.zalo'
-run = ["layout floating", "move-node-to-workspace 5.Chat"]
+run = ["layout floating", "move-node-to-workspace 4.Chat"]
 
 [[on-window-detected]]
 if.app-id = 'ru.keepcoder.Telegram'
-run = ["layout floating", "move-node-to-workspace 5.Chat"]
+run = ["layout floating", "move-node-to-workspace 4.Chat"]
 
 [[on-window-detected]]
 if.app-id = 'com.vsee.VSee'
-run = ["layout floating", "move-node-to-workspace 5.Chat"]
+run = ["layout floating", "move-node-to-workspace 4.Chat"]
 
 [[on-window-detected]]
-if.app-id = 'com.culturedcode.ThingsMac'
-run = ["layout floating", "move-node-to-workspace 4.Note"]
-
-[[on-window-detected]]
-if.app-id = 'md.obsidian'
-run = ["layout floating", "move-node-to-workspace 4.Note"]
+if.app-id = 'com.apple.Safari'
+run = ["layout floating", "move-node-to-workspace 5.Personal"]
 
 [[on-window-detected]]
 if.app-id = 'com.bitwarden.desktop'
-run = ["layout floating", "move-node-to-workspace 7"]
+run = ["layout floating", "move-node-to-workspace 5.Personal"]
 
-[[on-window-detected]]
-if.app-id = 'org.chromium.Chromium'
-run = ["move-node-to-workspace 8"]
 
+
+# Make all windows float by default, but allow specific app rules to override
 [[on-window-detected]]
-if.app-id = 'com.wulkano.kap'
-run = ["layout floating"]
+check-further-callbacks = true
+run = ['layout floating']

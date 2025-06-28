@@ -1,0 +1,28 @@
+theme = catppuccin-mocha
+font-family = "IBM Plex Mono"
+font-size = 16
+
+# Background transparency (0.0 = fully transparent, 1.0 = fully opaque)
+background-opacity = 0.8
+
+# Optional: Add background blur for a nicer transparent effect
+background-blur = 30
+
+# Hide the title bar on macOS
+macos-titlebar-style = hidden
+
+# Window size - always open with consistent dimensions
+# Size is in terminal grid cells (characters wide by lines high)
+window-width = 160
+window-height = 50
+
+# Fix backspace key issues
+term = xterm-256color
+
+# Explicit keybindings for backspace to ensure it works correctly
+keybind = backspace=text:\x7f
+keybind = ctrl+backspace=text:\x08
+
+cursor-style = block
+cursor-style-blink = false
+shell-integration-features = no-cursor
