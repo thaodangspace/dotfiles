@@ -84,25 +84,25 @@ alt-shift-l = 'move right'
 alt-shift-minus = 'resize smart -50'
 alt-shift-equal = 'resize smart +50'
 
-alt-1 = 'workspace 1.Browser'
-alt-2 = 'workspace 2.Code'
+alt-1 = 'workspace 1.Code'
+alt-2 = 'workspace 2.Browser'
 alt-3 = 'workspace 3.Terminal'
-alt-4 = 'workspace 4.Chat'
-alt-5 = 'workspace 5.Personal'
-alt-6 = 'workspace 6'
-alt-7 = 'workspace 7'
-alt-8 = 'workspace 8'
-alt-9 = 'workspace 9'
+alt-4 = 'workspace 4.Space'
+alt-5 = 'workspace 5.Space'
+alt-6 = 'workspace 6.Space'
+alt-7 = 'workspace 7.Space'
+alt-8 = 'workspace 8.Space'
+alt-9 = 'workspace 9.Space'
 
-alt-shift-1 = 'move-node-to-workspace 1.Browser'
-alt-shift-2 = 'move-node-to-workspace 2.Code'
+alt-shift-1 = 'move-node-to-workspace 1.Code'
+alt-shift-2 = 'move-node-to-workspace 2.Browser'
 alt-shift-3 = 'move-node-to-workspace 3.Terminal'
-alt-shift-4 = 'move-node-to-workspace 4.Chat'
-alt-shift-5 = 'move-node-to-workspace 5.Personal'
-alt-shift-6 = 'move-node-to-workspace 6'
-alt-shift-7 = 'move-node-to-workspace 7'
-alt-shift-8 = 'move-node-to-workspace 8'
-alt-shift-9 = 'move-node-to-workspace 9'
+alt-shift-4 = 'move-node-to-workspace 4.Space'
+alt-shift-5 = 'move-node-to-workspace 5.Space'
+alt-shift-6 = 'move-node-to-workspace 6.Space'
+alt-shift-7 = 'move-node-to-workspace 7.Space'
+alt-shift-8 = 'move-node-to-workspace 8.Space'
+alt-shift-9 = 'move-node-to-workspace 9.Space'
 
 #alt-tab = 'workspace-back-and-forth'
 alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
@@ -112,6 +112,7 @@ alt-shift-space = ['layout floating tiling', 'mode main']
 
 # Key binding to toggle Ghostty as floating on current workspace
 alt-t = 'exec-and-forget bash $HOME/.config/scripts/float_ghostty.sh'
+alt-b = 'exec-and-forget bash $HOME/.config/scripts/float_qutebrowser.sh'
 
 alt-shift-semicolon = 'mode service'
 
@@ -135,14 +136,13 @@ shift-down = ['volume set 0', 'mode main']
 
 p = ['exec-and-forget nowplaying-cli togglePlayPause', 'mode main']
 
-
 [[on-window-detected]]
 if.app-id = 'com.google.Chrome'
-run = "move-node-to-workspace 1.Browser"
+run = "move-node-to-workspace 2.Browser"
 
 [[on-window-detected]]
 if.app-id = 'com.todesktop.230313mzl4w4u92'
-run = "move-node-to-workspace 2.Code"
+run = ["move-node-to-workspace 1.Code"]
 
 # Auto-float Ghostty windows when detected
 [[on-window-detected]]
@@ -150,29 +150,20 @@ if.app-id = 'com.mitchellh.ghostty'
 run = ["layout floating", "move-node-to-workspace 3.Terminal"]
 
 [[on-window-detected]]
-if.app-id = 'com.tinyspeck.slackmacgap'
-run = ["layout floating", "move-node-to-workspace 4.Chat"]
-
-[[on-window-detected]]
 if.app-id = 'com.vng.zalo'
-run = ["layout floating", "move-node-to-workspace 4.Chat"]
+run = ["layout floating", "move-node-to-workspace 5.Space"]
 
 [[on-window-detected]]
 if.app-id = 'ru.keepcoder.Telegram'
-run = ["layout floating", "move-node-to-workspace 4.Chat"]
-
-[[on-window-detected]]
-if.app-id = 'com.vsee.VSee'
-run = ["layout floating", "move-node-to-workspace 4.Chat"]
+run = ["layout floating", "move-node-to-workspace 5.Space"]
 
 [[on-window-detected]]
 if.app-id = 'com.apple.Safari'
-run = ["layout floating", "move-node-to-workspace 5.Personal"]
+run = ["layout floating", "move-node-to-workspace 5.Space"]
 
 [[on-window-detected]]
 if.app-id = 'com.bitwarden.desktop'
-run = ["layout floating", "move-node-to-workspace 5.Personal"]
-
+run = ["layout floating", "move-node-to-workspace 5.Space"]
 
 
 # Make all windows float by default, but allow specific app rules to override

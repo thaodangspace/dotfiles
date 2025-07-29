@@ -10,7 +10,7 @@ PLUGIN_DIR="$CONFIG_DIR/plugins"
 # If you are looking for other colors, see the color picker:
 # https://felixkratz.github.io/SketchyBar/config/tricks#color-picker
 
-sketchybar --bar position=top height=24 blur_radius=50 color=0x66494d64
+sketchybar --bar position=top height=24 blur_radius=50 color=0x80011627
 # 
 ##### Changing Defaults #####
 # We now change some default values, which are applied to all further items.
@@ -44,23 +44,18 @@ for sid in $(aerospace list-workspaces --monitor 1); do
     --subscribe space.$sid aerospace_workspace_change \
     --set space.$sid \
     drawing=off \
-    background.color=0x44ebdbb2 \
+    background.color=0x00RRGGBB \
     background.corner_radius=5 \
     background.drawing=on \
-    background.border_color=0xAAFFFFFF \
+    background.border_color=0x33FFFFFF \
     background.border_width=0 \
     background.height=18 \
     icon="$sid" \
     icon.padding_left=8 \
-    icon.shadow.distance=2 \
-    icon.shadow.color=0xA0000000 \
     label.font="sketchybar-app-font:Regular:12.0" \
     label.padding_right=15 \
     label.padding_left=0 \
     label.y_offset=-1 \
-    label.shadow.drawing=off \
-    label.shadow.color=0xA0000000 \
-    label.shadow.distance=2 \
     click_script="aerospace workspace $sid" \
     script="$CONFIG_DIR/plugins/aerospace.sh $sid"
 done
@@ -83,11 +78,12 @@ for sid in $(aerospace list-workspaces --monitor 1 --empty no); do
 done
 
 sketchybar --add item space_separator left \
-  --set space_separator icon="|" \
+  --set space_separator icon="│" \
   icon.padding_left=4 \
   label.drawing=off \
   background.drawing=off \
-  script="$PLUGIN_DIR/space_windows.sh" \
+  script="$PLUGIN_DIR/animated_separator.sh" \
+  update_freq=1 \
   --subscribe space_separator aerospace_workspace_change
 
 # Front app!!

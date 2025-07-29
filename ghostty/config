@@ -1,4 +1,4 @@
-theme = catppuccin-mocha
+theme = Solarized Dark Higher Contrast
 font-family = "IBM Plex Mono"
 font-size = 16
 
@@ -6,7 +6,7 @@ font-size = 16
 background-opacity = 0.8
 
 # Optional: Add background blur for a nicer transparent effect
-background-blur = 30
+background-blur = 50
 
 # Hide the title bar on macOS
 macos-titlebar-style = hidden
@@ -26,3 +26,4 @@ keybind = ctrl+backspace=text:\x08
 cursor-style = block
 cursor-style-blink = false
 shell-integration-features = no-cursor
+keybind = shift+enter=text:\n
