@@ -87,22 +87,22 @@ alt-shift-equal = 'resize smart +50'
 alt-1 = 'workspace 1.Code'
 alt-2 = 'workspace 2.Browser'
 alt-3 = 'workspace 3.Terminal'
-alt-4 = 'workspace 4.Space'
-alt-5 = 'workspace 5.Space'
-alt-6 = 'workspace 6.Space'
-alt-7 = 'workspace 7.Space'
-alt-8 = 'workspace 8.Space'
-alt-9 = 'workspace 9.Space'
+alt-4 = 'workspace 4'
+alt-5 = 'workspace 5'
+alt-6 = 'workspace 6'
+alt-7 = 'workspace 7'
+alt-8 = 'workspace 8'
+alt-9 = 'workspace 9'
 
 alt-shift-1 = 'move-node-to-workspace 1.Code'
 alt-shift-2 = 'move-node-to-workspace 2.Browser'
 alt-shift-3 = 'move-node-to-workspace 3.Terminal'
-alt-shift-4 = 'move-node-to-workspace 4.Space'
-alt-shift-5 = 'move-node-to-workspace 5.Space'
-alt-shift-6 = 'move-node-to-workspace 6.Space'
-alt-shift-7 = 'move-node-to-workspace 7.Space'
-alt-shift-8 = 'move-node-to-workspace 8.Space'
-alt-shift-9 = 'move-node-to-workspace 9.Space'
+alt-shift-4 = 'move-node-to-workspace 4'
+alt-shift-5 = 'move-node-to-workspace 5'
+alt-shift-6 = 'move-node-to-workspace 6'
+alt-shift-7 = 'move-node-to-workspace 7'
+alt-shift-8 = 'move-node-to-workspace 8'
+alt-shift-9 = 'move-node-to-workspace 9'
 
 #alt-tab = 'workspace-back-and-forth'
 alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
@@ -151,19 +151,19 @@ run = ["layout floating", "move-node-to-workspace 3.Terminal"]
 
 [[on-window-detected]]
 if.app-id = 'com.vng.zalo'
-run = ["layout floating", "move-node-to-workspace 5.Space"]
+run = ["layout floating", "move-node-to-workspace 5"]
 
 [[on-window-detected]]
 if.app-id = 'ru.keepcoder.Telegram'
-run = ["layout floating", "move-node-to-workspace 5.Space"]
+run = ["layout floating", "move-node-to-workspace 5"]
 
 [[on-window-detected]]
 if.app-id = 'com.apple.Safari'
-run = ["layout floating", "move-node-to-workspace 5.Space"]
+run = ["layout floating", "move-node-to-workspace 5"]
 
 [[on-window-detected]]
 if.app-id = 'com.bitwarden.desktop'
-run = ["layout floating", "move-node-to-workspace 5.Space"]
+run = ["layout floating", "move-node-to-workspace 5"]
 
 
 # Make all windows float by default, but allow specific app rules to override

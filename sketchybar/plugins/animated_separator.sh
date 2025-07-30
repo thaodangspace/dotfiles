@@ -74,7 +74,6 @@ WEATHER_SEPARATORS=(
   "☀️ "
   "☀️ "
 )
-
 # Get the current animation style (you can change this)
 ANIMATION_STYLE=${ANIMATION_STYLE:-"shaper"}  # options: bars, dots, waves, shaper, weather
 
