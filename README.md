@@ -1,4 +1,3 @@
-
 ```shell
 stow -t ~/.config/nvim nvim
 stow -t ~/.config/sketchybar sketchybar

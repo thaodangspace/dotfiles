@@ -1,5 +1,4 @@
-if vim.g.vscode then
-    -- VSCode extension
-else
-    -- ordinary Neovim
-end
+-- bootstrap lazy.nvim, LazyVim and your plugins
+vim.opt.termguicolors = true
+
+require("config.lazy")
