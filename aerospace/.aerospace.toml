@@ -86,7 +86,7 @@ alt-shift-equal = 'resize smart +50'
 
 alt-1 = 'workspace 1.Code'
 alt-2 = 'workspace 2.Browser'
-alt-3 = 'workspace 3.Terminal'
+alt-3 = 'workspace 3.Tools'
 alt-4 = 'workspace 4'
 alt-5 = 'workspace 5'
 alt-6 = 'workspace 6'
@@ -96,7 +96,7 @@ alt-9 = 'workspace 9'
 
 alt-shift-1 = 'move-node-to-workspace 1.Code'
 alt-shift-2 = 'move-node-to-workspace 2.Browser'
-alt-shift-3 = 'move-node-to-workspace 3.Terminal'
+alt-shift-3 = 'move-node-to-workspace 3.Tools'
 alt-shift-4 = 'move-node-to-workspace 4'
 alt-shift-5 = 'move-node-to-workspace 5'
 alt-shift-6 = 'move-node-to-workspace 6'
@@ -147,7 +147,7 @@ run = ["move-node-to-workspace 1.Code"]
 # Auto-float Ghostty windows when detected
 [[on-window-detected]]
 if.app-id = 'com.mitchellh.ghostty'
-run = ["layout floating", "move-node-to-workspace 3.Terminal"]
+run = ["layout floating", "move-node-to-workspace 3.Tools"]
 
 [[on-window-detected]]
 if.app-id = 'com.vng.zalo'
