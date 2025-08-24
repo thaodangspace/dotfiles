@@ -138,16 +138,16 @@ p = ['exec-and-forget nowplaying-cli togglePlayPause', 'mode main']
 
 [[on-window-detected]]
 if.app-id = 'com.google.Chrome'
-run = "move-node-to-workspace 2.Browser"
+run = ["layout floating", "move-node-to-workspace 2.Browser"]
 
 [[on-window-detected]]
 if.app-id = 'com.todesktop.230313mzl4w4u92'
-run = ["move-node-to-workspace 1.Code"]
+run = ["layout floating", "move-node-to-workspace 3.Tools"]
 
 # Auto-float Ghostty windows when detected
 [[on-window-detected]]
 if.app-id = 'com.mitchellh.ghostty'
-run = ["layout floating", "move-node-to-workspace 3.Tools"]
+run = ["layout floating", "move-node-to-workspace 1.Code"]
 
 [[on-window-detected]]
 if.app-id = 'com.vng.zalo'
