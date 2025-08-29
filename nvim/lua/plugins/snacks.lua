@@ -1,14 +1,19 @@
 return {
   "folke/snacks.nvim",
   opts = {
+    explorer = {
+      enabled = false,
+    },
     terminal = {
-      border = "double",
       win = {
+        border = "rounded",
         position = "float",
       },
     },
   },
   keys = {
+    -- Disable the default <leader>e explorer keymap
+    { "<leader>e", false },
     {
       "<leader>t",
       function()
