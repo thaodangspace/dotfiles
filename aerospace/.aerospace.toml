@@ -162,11 +162,5 @@ if.app-id = 'com.apple.Safari'
 run = ["layout floating", "move-node-to-workspace 5"]
 
 [[on-window-detected]]
-if.app-id = 'com.1password.1password'
-run = ["layout floating", "move-node-to-workspace 6"]
-
-
-# Make all windows float by default, but allow specific app rules to override
-[[on-window-detected]]
 check-further-callbacks = true
 run = ['layout floating']
