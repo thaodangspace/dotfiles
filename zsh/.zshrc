@@ -105,6 +105,9 @@ source $ZSH/oh-my-zsh.sh
 # startship
 eval "$(starship init zsh)"
 
+# Disable Ctrl+k (kill line forward) to prevent terminal clearing
+bindkey -r '^K'
+
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:$HOME/.lmstudio/bin"
 
