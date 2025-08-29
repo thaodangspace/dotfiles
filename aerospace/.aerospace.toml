@@ -136,22 +136,18 @@ shift-down = ['volume set 0', 'mode main']
 
 p = ['exec-and-forget nowplaying-cli togglePlayPause', 'mode main']
 
-[[on-window-detected]]
-if.app-id = 'com.google.Chrome'
-run = "move-node-to-workspace 2.Browser"
-
-[[on-window-detected]]
-if.app-id = 'com.todesktop.230313mzl4w4u92'
-run = ["move-node-to-workspace 1.Code"]
-
 # Auto-float Ghostty windows when detected
 [[on-window-detected]]
 if.app-id = 'com.mitchellh.ghostty'
-run = ["layout floating", "move-node-to-workspace 3.Tools"]
+run = ["layout floating", "move-node-to-workspace 1.Code"]
 
 [[on-window-detected]]
-if.app-id = 'com.vng.zalo'
-run = ["layout floating", "move-node-to-workspace 5"]
+if.app-id = 'com.google.Chrome'
+run = ["layout floating", "move-node-to-workspace 2.Browser"]
+
+[[on-window-detected]]
+if.app-id = 'com.todesktop.230313mzl4w4u92'
+run = ["layout floating", "move-node-to-workspace 3.Tools"]
 
 [[on-window-detected]]
 if.app-id = 'ru.keepcoder.Telegram'
@@ -162,8 +158,8 @@ if.app-id = 'com.apple.Safari'
 run = ["layout floating", "move-node-to-workspace 5"]
 
 [[on-window-detected]]
-if.app-id = 'com.bitwarden.desktop'
-run = ["layout floating", "move-node-to-workspace 5"]
+if.app-id = 'com.1password.1password'
+run = ["layout floating", "move-node-to-workspace 6"]
 
 
 # Make all windows float by default, but allow specific app rules to override
