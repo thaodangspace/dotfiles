@@ -2,6 +2,7 @@ return {
   "folke/snacks.nvim",
   opts = {
     terminal = {
+      border = "double",
       win = {
         position = "float",
       },

@@ -150,6 +150,10 @@ if.app-id = 'com.todesktop.230313mzl4w4u92'
 run = ["layout floating", "move-node-to-workspace 3.Tools"]
 
 [[on-window-detected]]
+if.app-id = 'com.DanPristupov.Fork'
+run = ["layout floating", "move-node-to-workspace 3.Tools"]
+
+[[on-window-detected]]
 if.app-id = 'ru.keepcoder.Telegram'
 run = ["layout floating", "move-node-to-workspace 5"]
 

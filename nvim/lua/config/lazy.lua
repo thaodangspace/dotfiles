@@ -21,15 +21,15 @@ require("lazy").setup({
       "LazyVim/LazyVim",
       import = "lazyvim.plugins",
       opts = {
-        colorscheme = "catppuccin",
+        -- colorscheme = "catppuccin",
         news = {
           lazyvim = true,
           neovim = true,
         },
       },
     },
-    { import = "lazyvim.plugins.extras.util.dot" },
     -- import any extras modules here
+    { import = "lazyvim.plugins.extras.util.dot" },
     { import = "lazyvim.plugins.extras.linting.eslint" },
     { import = "lazyvim.plugins.extras.formatting.prettier" },
     { import = "lazyvim.plugins.extras.lang.typescript" },
@@ -46,7 +46,7 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
-  install = { colorscheme = { "tokyonight", "habamax" } },
+  install = { colorscheme = { "catppuccin", "habamax" } },
   checker = {
     enabled = true, -- check for plugin updates periodically
     notify = false, -- notify on update
