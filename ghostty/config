@@ -4,10 +4,10 @@ font-size = 16
 adjust-cell-height = 20%
 
 # Background transparency (0.0 = fully transparent, 1.0 = fully opaque)
-background-opacity = 0.8
+background-opacity = 0.96
 
 # Optional: Add background blur for a nicer transparent effect
-background-blur = 70
+#background-blur = 70
 
 # Hide the title bar on macOS
 macos-titlebar-style = hidden
