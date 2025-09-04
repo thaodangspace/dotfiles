@@ -16,6 +16,12 @@ return {
         desc = "Open yazi at the current file",
       },
       {
+        "<leader>e",
+        mode = { "n", "v" },
+        "<cmd>Yazi<cr>",
+        desc = "Open yazi at the current file",
+      },
+      {
         -- Open in the current working directory
         "<leader>cw",
         "<cmd>Yazi cwd<cr>",
