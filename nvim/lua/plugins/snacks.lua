@@ -7,7 +7,6 @@ return {
     terminal = {
       win = {
         border = "rounded",
-        position = "float",
       },
     },
   },
