@@ -1,25 +1,51 @@
 [
-  // Terminal
   {
     "context": "Workspace",
     "bindings": {
-      "ctrl-/": "workspace::ToggleBottomDock",
-      "cmd-p": [
-        "task::Spawn",
-        { "task_name": "File Finder", "reveal_target": "center" }
-      ]
+      "ctrl-/": "workspace::ToggleBottomDock"
+      // "ctrl-r": "projects::OpenRemote",
+      // "ctrl-p": "projects::OpenRecent"
+      // "cmd-p": [
+      //   "task::Spawn",
+      //   { "task_name": "File Finder", "reveal_target": "center" }
+      // ]
     }
   },
-  // Window's navigation
   {
-    "context": "Dock || Terminal || Editor",
+    "context": "(Dock || Terminal || Editor)",
     "bindings": {
       // Window's motions
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-l": "workspace::ActivatePaneRight",
       "ctrl-k": "workspace::ActivatePaneUp",
-      "ctrl-j": "workspace::ActivatePaneDown"
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-p": "projects::OpenRecent"
+    }
+  },
+  //editor
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      "shift-h": "pane::ActivatePreviousItem",
+      "shift-l": "pane::ActivateNextItem",
+      "space e": "project_panel::ToggleFocus",
+      //git
+      "space g g": "git_panel::ToggleFocus",
+      "space g b": "git::Branch",
+      "space g d": "git::Diff",
+      // search
+      "s": "buffer_search::Deploy",
+      "space space": "file_finder::Toggle"
+    }
+  },
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "a": "project_panel::NewFile",
+      "shift-a": "project_panel::NewDirectory",
+      "d": "project_panel::Delete",
+      "r": "project_panel::Rename",
+      "l": "project_panel::OpenPermanent"
     }
   }
-
 ]

@@ -7,12 +7,74 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "ssh_connections": [
+    {
+      "host": "homelab",
+      "projects": [
+        {
+          "paths": [
+            "/home/dt/Code/vsee/frontend/vc-page-emr"
+          ]
+        },
+        {
+          "paths": [
+            "/home/dt/Code/vsee/frontend/vc-page-formio"
+          ]
+        }
+      ]
+    }
+  ],
   "ui_font_size": 16,
   "buffer_font_size": 16,
+  "ui_font_family": ".ZedMono",
   "theme": {
     "mode": "system",
-    "light": "One Light",
+    "light": "Catppuccin Mocha (Blur) [Heavy]",
     "dark": "One Dark"
   },
-  "vim_mode": true
+  "relative_line_numbers": true,
+  "terminal": {
+    "font_family": "BlexMono Nerd Font Mono"
+  },
+  "vim_mode": true,
+  "diagnostics": {
+    "inline": {
+      "enabled": true
+    }
+  },
+  "collaboration_panel": {
+    "button": false
+  },
+  "agent": {
+    "play_sound_when_agent_done": false,
+    "default_profile": "ask",
+    "default_model": {
+      "provider": "lmstudio",
+      "model": "openai/gpt-oss-20b"
+    }
+  },
+  "show_edit_predictions": false,
+  "edit_predictions": {
+    "disabled_globs": [],
+    "mode": "eager",
+    "copilot": {
+      "proxy": null,
+      "proxy_no_verify": null,
+      "enterprise_uri": null
+    },
+    "enabled_in_text_threads": false
+  },
+  "context_servers": {
+        "sequential-thinking": {
+            "source": "custom",
+            "enabled": true,
+            "command": "docker",
+            "args": [
+                "run",
+                "--rm",
+                "-i",
+                "mcp/sequentialthinking"
+            ]
+        }
+    }
 }

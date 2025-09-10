@@ -1,28 +1,29 @@
 [
-    {
-      "label": "lazygit",
-      "command": "lazygit -p $ZED_WORKTREE_ROOT",
-      "hide": "always",
-      "use_new_terminal": true,
-      "allow_concurrent_runs": false
-    },{
-        "label": "File Finder",
-        "command": "tv text --no-remote --no-help --tick-rate 120 | read -alz res; and zed $res",
-        "hide": "always",
-        "allow_concurrent_runs": false,
-        "use_new_terminal": true,
-        "shell": {
-          "program": "/bin/zsh"
-        }
-      },
-      {
-        "label": "Find in Files",
-        "command": "zed \"$(tv text)\"",
-        "hide": "always",
-        "allow_concurrent_runs": false,
-        "use_new_terminal": true,
-        "shell": {
-          "program": "/bin/zsh"
-        }
-      }
+  {
+    "label": "lazygit",
+    "command": "lazygit -p $ZED_WORKTREE_ROOT",
+    "hide": "always",
+    "use_new_terminal": true,
+    "allow_concurrent_runs": false
+  },
+  {
+    "label": "File Finder",
+    "command": "tv text --no-remote --no-help --tick-rate 120 | read -alz res; and zed $res",
+    "hide": "always",
+    "allow_concurrent_runs": false,
+    "use_new_terminal": true,
+    "shell": {
+      "program": "/bin/zsh"
+    }
+  },
+  {
+    "label": "Find in Files",
+    "command": "zed \"$(tv text)\"",
+    "hide": "always",
+    "allow_concurrent_runs": false,
+    "use_new_terminal": true,
+    "shell": {
+      "program": "/bin/zsh"
+    }
+  }
 ]
