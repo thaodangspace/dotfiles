@@ -1,5 +1,5 @@
 theme = catppuccin-mocha
-font-family = "IBM Plex Mono"
+font-family = "Jetbrains Mono"
 font-size = 16
 adjust-cell-height = 20%
 
@@ -7,7 +7,7 @@ adjust-cell-height = 20%
 background-opacity = 0.96
 
 # Optional: Add background blur for a nicer transparent effect
-#background-blur = 70
+#background-blur = 20
 
 # Hide the title bar on macOS
 macos-titlebar-style = hidden
