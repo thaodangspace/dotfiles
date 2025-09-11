@@ -5,3 +5,4 @@ vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGai
   pattern = { "*" },
 })
 require("config.lazy")
+require("config.search").setup()
