@@ -13,12 +13,12 @@
       "projects": [
         {
           "paths": [
-            "/home/dt/Code/vsee/frontend/vc-page-emr"
+            "/home/dt/Code/vsee/frontend/vc-page-admin"
           ]
         },
         {
           "paths": [
-            "/home/dt/Code/vsee/frontend/vc-page-formio"
+            "/home/dt/Code/vsee/frontend/vc-page-provider"
           ]
         }
       ]
