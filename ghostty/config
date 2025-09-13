@@ -1,13 +1,12 @@
-theme = catppuccin-mocha
-font-family = "Jetbrains Mono"
+#theme = "CobaltNext-Minimal"
+theme = "Solarized Dark - Patched"
+
+background-opacity = 0.9
+background-blur-radius = 20
+background = #031219
+font-family = "IBM Plex Mono"
 font-size = 16
 adjust-cell-height = 20%
-
-# Background transparency (0.0 = fully transparent, 1.0 = fully opaque)
-background-opacity = 0.96
-
-# Optional: Add background blur for a nicer transparent effect
-#background-blur = 20
 
 # Hide the title bar on macOS
 macos-titlebar-style = hidden
