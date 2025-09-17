@@ -1,0 +1,1 @@
+After changes, run Stylua on touched Lua files (`stylua --config-path nvim/stylua.toml <files>`) and review with `git diff`. No automated tests; rely on manual validation in the respective applications (e.g., launch Neovim to ensure config loads).

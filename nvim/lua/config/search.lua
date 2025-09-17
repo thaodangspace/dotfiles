@@ -23,18 +23,13 @@ end
 
 -- Function to grep text in project
 local function grep_text()
-  local word = vim.fn.expand("<cword>")
-  if word and word ~= "" then
-    vim.cmd("Telescope live_grep default_text=" .. word)
-  else
-    vim.cmd("Telescope live_grep")
-  end
+  vim.cmd("Telescope live_grep")
 end
 
 -- Function to grep selected text in project
 local function grep_selected()
   vim.cmd('normal! "zy')
-  local selected = vim.fn.getreg('z')
+  local selected = vim.fn.getreg("z")
   if selected and selected ~= "" then
     vim.cmd("Telescope live_grep default_text=" .. vim.fn.escape(selected, ' "'))
   else
@@ -68,7 +63,7 @@ local function setup_keymaps()
   keymap("n", "/", search_current_word, { desc = "Search with current word" })
   keymap("n", "?", normal_search, { desc = "Normal search" })
   keymap("n", "<S-Space>", search_word_backward, { desc = "Search current word backward" })
-  
+
   -- Project-wide search
   keymap("n", "<Space><Space>", search_files, { desc = "Search files in project" })
   keymap("n", "<Space>/", grep_text, { desc = "Grep text in project" })
@@ -100,4 +95,3 @@ function M.setup()
 end
 
 return M
-

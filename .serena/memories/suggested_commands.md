@@ -1,0 +1,3 @@
+- `stow -t <target> <folder>` to symlink configs into place (see README for common targets).
+- `stylua --config-path nvim/stylua.toml <lua-files>` to format Neovim Lua.
+- Usual git commands (`git status`, `git diff`) for change tracking.

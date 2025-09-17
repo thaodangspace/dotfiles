@@ -13,12 +13,5 @@ return {
   keys = {
     -- Disable the default <leader>e explorer keymap
     { "<leader>e", false },
-    {
-      "<leader>t",
-      function()
-        Snacks.terminal.toggle()
-      end,
-      desc = "Toggle Terminal",
-    },
   },
 }

@@ -8,7 +8,7 @@ local opt = vim.opt
 
 vim.g.mapleader = " "
 
-opt.clipboard = ""
+opt.clipboard = "unnamedplus"
 opt.termguicolors = true
 opt.shortmess:append("c")
 opt.backup = false

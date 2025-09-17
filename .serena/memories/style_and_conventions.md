@@ -1,0 +1,1 @@
+Lua code follows Stylua formatting (config in `nvim/stylua.toml`). Plugin specs use Lazy.nvim style tables returning plugin lists. General preference for concise Lua tables, using `vim.tbl_deep_extend` to merge options rather than overwriting. Comments kept minimal and purposeful.
