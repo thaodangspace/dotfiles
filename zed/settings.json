@@ -18,6 +18,11 @@
         },
         {
           "paths": [
+            "/home/dt/Code/vsee/frontend/vc-page-editor"
+          ]
+        },
+        {
+          "paths": [
             "/home/dt/Code/vsee/frontend/vc-page-provider"
           ]
         }
@@ -29,7 +34,7 @@
   "ui_font_family": ".ZedMono",
   "theme": {
     "mode": "system",
-    "light": "Catppuccin Mocha (Blur) [Heavy]",
+    "light": "Catppuccin Mocha",
     "dark": "One Dark"
   },
   "relative_line_numbers": true,

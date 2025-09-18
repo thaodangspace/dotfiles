@@ -39,13 +39,10 @@
     }
   },
   {
-    "context": "ProjectPanel",
+    "context": "ProjectPanel && vim_mode == normal",
     "bindings": {
       "a": "project_panel::NewFile",
-      "shift-a": "project_panel::NewDirectory",
-      "d": "project_panel::Delete",
-      "r": "project_panel::Rename",
-      "l": "project_panel::OpenPermanent"
+      "shift-a": "project_panel::NewDirectory"
     }
   }
 ]
