@@ -12,19 +12,13 @@
       "host": "homelab",
       "projects": [
         {
-          "paths": [
-            "/home/dt/Code/vsee/frontend/vc-page-admin"
-          ]
+          "paths": ["/home/dt/Code/vsee/frontend/vc-page-admin"]
         },
         {
-          "paths": [
-            "/home/dt/Code/vsee/frontend/vc-page-editor"
-          ]
+          "paths": ["/home/dt/Code/vsee/frontend/vc-page-editor"]
         },
         {
-          "paths": [
-            "/home/dt/Code/vsee/frontend/vc-page-provider"
-          ]
+          "paths": ["/home/dt/Code/vsee/frontend/vc-page-provider"]
         }
       ]
     }
@@ -70,16 +64,23 @@
     "enabled_in_text_threads": false
   },
   "context_servers": {
-        "sequential-thinking": {
-            "source": "custom",
-            "enabled": true,
-            "command": "docker",
-            "args": [
-                "run",
-                "--rm",
-                "-i",
-                "mcp/sequentialthinking"
-            ]
-        }
+    "sequential-thinking": {
+      "source": "custom",
+      "enabled": true,
+      "command": "docker",
+      "args": ["run", "--rm", "-i", "mcp/sequentialthinking"]
     }
+  },
+  "languages": {
+    "JavaScript": {
+      "inlay_hints": {
+        "enabled": true
+      }
+    },
+    "TypeScript": {
+      "inlay_hints": {
+        "enabled": true
+      }
+    }
+  }
 }

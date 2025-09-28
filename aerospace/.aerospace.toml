@@ -96,8 +96,8 @@ alt-9 = 'workspace 9'
 
 alt-shift-1 = 'move-node-to-workspace 1.Code'
 alt-shift-2 = 'move-node-to-workspace 2.Browser'
-alt-shift-4 = 'move-node-to-workspace 3.Agents'
-alt-shift-3 = 'move-node-to-workspace 4.Tools'
+alt-shift-3 = 'move-node-to-workspace 3.Agents'
+alt-shift-4 = 'move-node-to-workspace 4.Tools'
 alt-shift-5 = 'move-node-to-workspace 5'
 alt-shift-6 = 'move-node-to-workspace 6'
 alt-shift-7 = 'move-node-to-workspace 7'
@@ -112,7 +112,7 @@ alt-shift-space = ['layout floating tiling', 'mode main']
 
 # Key binding to toggle Ghostty as floating on current workspace
 alt-t = 'exec-and-forget bash $HOME/.config/scripts/float_ghostty.sh'
-alt-b = 'exec-and-forget bash $HOME/.config/scripts/float_qutebrowser.sh'
+alt-b = 'exec-and-forget bash $HOME/.config/scripts/float_browser.sh'
 
 alt-shift-semicolon = 'mode service'
 
