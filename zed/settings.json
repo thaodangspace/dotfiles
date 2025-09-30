@@ -32,6 +32,9 @@
     "dark": "One Dark"
   },
   "relative_line_numbers": true,
+  "title_bar": {
+    "show_user_picture": false
+  },
   "terminal": {
     "font_family": "BlexMono Nerd Font Mono"
   },
@@ -44,6 +47,15 @@
   "collaboration_panel": {
     "button": false
   },
+  "search": {
+    "button": false
+  },
+  "outline_panel": {
+    "button": false
+  },
+  "notification_panel": {
+    "button": false
+  },
   "agent": {
     "play_sound_when_agent_done": false,
     "default_profile": "ask",
@@ -51,6 +63,9 @@
       "provider": "lmstudio",
       "model": "openai/gpt-oss-20b"
     }
+  },
+  "features": {
+    "edit_prediction_provider": "none"
   },
   "show_edit_predictions": false,
   "edit_predictions": {
