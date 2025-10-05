@@ -7,18 +7,38 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "git_panel": {
+    "sort_by_path": true
+  },
   "ssh_connections": [
     {
       "host": "homelab",
+      "args": [],
       "projects": [
         {
-          "paths": ["/home/dt/Code/vsee/frontend/vc-page-admin"]
+          "paths": [
+            "/home/dt/Code/agentsandbox"
+          ]
         },
         {
-          "paths": ["/home/dt/Code/vsee/frontend/vc-page-editor"]
+          "paths": [
+            "/home/dt/Code/vsee/evisit"
+          ]
         },
         {
-          "paths": ["/home/dt/Code/vsee/frontend/vc-page-provider"]
+          "paths": [
+            "/home/dt/Code/vsee/frontend/vc-page-admin"
+          ]
+        },
+        {
+          "paths": [
+            "/home/dt/Code/vsee/frontend/vc-page-editor"
+          ]
+        },
+        {
+          "paths": [
+            "/home/dt/Code/vsee/frontend/vc-page-provider"
+          ]
         }
       ]
     }

@@ -2,7 +2,8 @@
   {
     "context": "Workspace",
     "bindings": {
-      "ctrl-p": "projects::OpenRecent"
+      "ctrl-p": "projects::OpenRecent",
+      "ctrl-shift-g": "git_panel::ToggleFocus"
       // "cmd-p": [
       //   "task::Spawn",
       //   { "task_name": "File Finder", "reveal_target": "center" }
@@ -27,10 +28,6 @@
       "shift-h": "pane::ActivatePreviousItem",
       "shift-l": "pane::ActivateNextItem",
       "space e": "project_panel::ToggleFocus",
-      //git
-      "space g g": "git_panel::ToggleFocus",
-      "space g b": "git::Branch",
-      "space g d": "git::Diff",
       // search
       "s": "buffer_search::Deploy",
       "space space": "file_finder::Toggle"
