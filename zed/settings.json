@@ -7,6 +7,11 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "agent_servers": {
+    "claude": {
+      
+    }
+  },
   "git_panel": {
     "sort_by_path": true
   },
@@ -33,6 +38,16 @@
         {
           "paths": [
             "/home/dt/Code/vsee/frontend/vc-page-editor"
+          ]
+        },
+        {
+          "paths": [
+            "/home/dt/Code/vsee/frontend/vc-page-formio/./"
+          ]
+        },
+        {
+          "paths": [
+            "/home/dt/Code/vsee/frontend/vc-page-lib"
           ]
         },
         {
