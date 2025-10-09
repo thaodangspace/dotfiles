@@ -8,9 +8,7 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   "agent_servers": {
-    "claude": {
-      
-    }
+    "claude": {}
   },
   "git_panel": {
     "sort_by_path": true
@@ -21,39 +19,25 @@
       "args": [],
       "projects": [
         {
-          "paths": [
-            "/home/dt/Code/agentsandbox"
-          ]
+          "paths": ["/home/dt/Code/agentsandbox"]
         },
         {
-          "paths": [
-            "/home/dt/Code/vsee/evisit"
-          ]
+          "paths": ["/home/dt/Code/vsee/evisit"]
         },
         {
-          "paths": [
-            "/home/dt/Code/vsee/frontend/vc-page-admin"
-          ]
+          "paths": ["/home/dt/Code/vsee/frontend/vc-page-admin"]
         },
         {
-          "paths": [
-            "/home/dt/Code/vsee/frontend/vc-page-editor"
-          ]
+          "paths": ["/home/dt/Code/vsee/frontend/vc-page-editor"]
         },
         {
-          "paths": [
-            "/home/dt/Code/vsee/frontend/vc-page-formio/./"
-          ]
+          "paths": ["/home/dt/Code/vsee/frontend/vc-page-formio"]
         },
         {
-          "paths": [
-            "/home/dt/Code/vsee/frontend/vc-page-lib"
-          ]
+          "paths": ["/home/dt/Code/vsee/frontend/vc-page-lib"]
         },
         {
-          "paths": [
-            "/home/dt/Code/vsee/frontend/vc-page-provider"
-          ]
+          "paths": ["/home/dt/Code/vsee/frontend/vc-page-provider"]
         }
       ]
     }
@@ -113,24 +97,27 @@
     },
     "enabled_in_text_threads": false
   },
-  "context_servers": {
-    "sequential-thinking": {
-      "source": "custom",
-      "enabled": true,
-      "command": "docker",
-      "args": ["run", "--rm", "-i", "mcp/sequentialthinking"]
-    }
-  },
   "languages": {
     "JavaScript": {
       "inlay_hints": {
         "enabled": true
-      }
+      },
+      "formatter": "prettier"
     },
     "TypeScript": {
       "inlay_hints": {
         "enabled": true
-      }
+      },
+      "formatter": "prettier"
+    },
+    "TSX": {
+      "formatter": "prettier"
+    },
+    "JSON": {
+      "formatter": "prettier"
     }
+  },
+  "prettier": {
+    "allowed": true
   }
 }

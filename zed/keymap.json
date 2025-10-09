@@ -43,5 +43,12 @@
       "shift-l": "project_panel::OpenSplitVertical",
       "shift-a": "project_panel::NewDirectory"
     }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "shift-h": "pane::ActivatePreviousItem",
+      "shift-l": "pane::ActivateNextItem"
+    }
   }
 ]
