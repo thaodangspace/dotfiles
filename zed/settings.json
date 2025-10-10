@@ -102,7 +102,8 @@
       "inlay_hints": {
         "enabled": true
       },
-      "formatter": "prettier"
+      "formatter": "prettier",
+      "format_on_save": "off"
     },
     "TypeScript": {
       "inlay_hints": {
