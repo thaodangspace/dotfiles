@@ -1,14 +1,5 @@
 -- lua/plugins/recent-files.lua
 return {
-  -- 1) Tắt tabline để bỏ thói quen dùng tab
-  {
-    "nvim-lua/plenary.nvim", -- đảm bảo có plenary (Telescope đã kéo sẵn)
-    init = function()
-      vim.opt.showtabline = 0
-      vim.keymap.set("n", "<leader>tc", "<cmd>tabclose<cr>", { desc = "Close Tab" })
-    end,
-  },
-
   {
     "nvim-telescope/telescope.nvim",
     opts = function(_, opts)
@@ -27,7 +18,6 @@ return {
       oldfiles.mappings.n["<CR>"] = actions.file_edit
 
       opts.pickers.oldfiles = oldfiles
-
       return opts
     end,
     keys = function(_, keys)
