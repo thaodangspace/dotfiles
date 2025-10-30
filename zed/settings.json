@@ -7,6 +7,8 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "confirm_quit": true,
+  "disable_ai": true,
   "agent_servers": {
     "claude": {}
   },
@@ -36,6 +38,11 @@
         {
           "paths": [
             "/home/dt/Code/vsee/frontend/vc-page-editor"
+          ]
+        },
+        {
+          "paths": [
+            "/home/dt/Code/vsee/frontend/vc-page-emr"
           ]
         },
         {

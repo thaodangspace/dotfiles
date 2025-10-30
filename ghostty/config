@@ -1,13 +1,11 @@
 #theme = "CobaltNext-Minimal"
 # theme = "Solarized Dark - Patched"
 theme = "catppuccin mocha"
-background-opacity = 0.95
+background-opacity = 1
 background-blur-radius = 30
 background = #181825
 font-family = "IBM Plex Mono Text"
 font-family-bold = "IBM Plex Mono Bold"
-font-family-italic = "IBM Plex Mono Italic"
-font-family-bold-italic = "IBM Plex Mono Bold Italic"
 font-size = 16
 adjust-cell-height = 10%
 

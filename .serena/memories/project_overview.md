@@ -1,1 +1,0 @@
-Personal dotfiles repo containing configurations for tools like Neovim, tmux, wezterm, ghostty, sketchybar, and shell environments. Neovim config is written in Lua with plugin definitions under `nvim/lua/plugins`. Repo is managed with `stow` to sync folders into `$HOME`.

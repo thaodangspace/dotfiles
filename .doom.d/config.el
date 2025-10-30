@@ -87,7 +87,8 @@
 
 ;; Custom keybindings
 (map! :leader
-      :desc "Find files" "e" #'find-file
+
+     :desc "Find files" "e" #'find-file
       :desc "Open URL in EWW" "w" #'eww
       :desc "Open URL in external browser" "W" #'browse-url)
 
@@ -109,9 +110,8 @@
   (setq tramp-default-method "ssh"
         tramp-verbose 1
         tramp-connection-timeout 10
-        tramp-use-ssh-controlmaster-options t
-        tramp-ssh-controlmaster-options
-        "-o ControlMaster=auto -o ControlPersist=yes -o ServerAliveInterval=30 -o ServerAliveCountMax=6 -o ControlPath=~/.ssh/controlmasters/%r@%h:%p"
+        ;; Disable SSH ControlMaster in TRAMP to avoid format character issues
+        tramp-use-ssh-controlmaster-options nil
         tramp-completion-reread-directory-timeout 300
         tramp-persistency-file-name (expand-file-name "tramp.eld" user-emacs-directory))
   ;; Ensure remote PATH includes common locations without relying on special symbols
@@ -129,5 +129,25 @@
   (let ((tramp-autosaves (expand-file-name "tramp-autosaves/" user-emacs-directory)))
     (add-to-list 'auto-save-file-name-transforms (list tramp-file-name-regexp tramp-autosaves t))))
 
-;; Ensure ControlPath directory exists for SSH multiplexing
-(ignore-errors (make-directory "~/.ssh/controlmasters" t))
+;; Ensure JSX/TSX files use the proper major modes
+(add-to-list 'auto-mode-alist '("\\.jsx\\'" . js-mode))
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))
+
+;; Enable tree-sitter for JavaScript/TypeScript files when available
+(after! js-mode
+  (when (and (fboundp 'treesit-available-p)
+             (treesit-available-p))
+    (add-to-list 'major-mode-remap-alist '(js-mode . js-ts-mode))
+    (add-to-list 'major-mode-remap-alist '(javascript-mode . js-ts-mode))))
+
+(after! typescript-mode
+  (when (and (fboundp 'treesit-available-p)
+             (treesit-available-p))
+    (add-to-list 'major-mode-remap-alist '(typescript-mode . typescript-ts-mode))))
+
+;; Ensure syntax highlighting works for remote files
+(add-hook 'find-file-hook
+  (lambda ()
+    (when (file-remote-p default-directory)
+      ;; Force font-lock refresh for remote files
+      (font-lock-ensure))))
