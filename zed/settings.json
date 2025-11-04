@@ -27,6 +27,11 @@
         },
         {
           "paths": [
+            "/home/dt/Code/vsee/backend/vc-api-emr"
+          ]
+        },
+        {
+          "paths": [
             "/home/dt/Code/vsee/evisit"
           ]
         },
@@ -63,6 +68,11 @@
         {
           "paths": [
             "/home/dt/Code/vsee/frontend/vc-page-provider"
+          ]
+        },
+        {
+          "paths": [
+            "/home/dt/Code/vsee/frontend/vc-page-workflows"
           ]
         },
         {

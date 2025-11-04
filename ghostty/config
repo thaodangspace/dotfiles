@@ -1,7 +1,7 @@
 #theme = "CobaltNext-Minimal"
 # theme = "Solarized Dark - Patched"
 theme = "catppuccin mocha"
-background-opacity = 1
+background-opacity = 0.96
 background-blur-radius = 30
 background = #181825
 font-family = "IBM Plex Mono Text"
