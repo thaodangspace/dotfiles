@@ -10,7 +10,7 @@ PLUGIN_DIR="$CONFIG_DIR/plugins"
 # If you are looking for other colors, see the color picker:
 # https://felixkratz.github.io/SketchyBar/config/tricks#color-picker
 
-sketchybar --bar position=top height=30 color=0xFF1E1E2E y_offset=5 margin=10 corner_radius=6
+sketchybar --bar position=top height=30 color=0x651e1e2e y_offset=5 margin=10 corner_radius=6 blur_radius=10
 #
 ##### Changing Defaults #####
 # We now change some default values, which are applied to all further items.
@@ -45,7 +45,7 @@ for sid in $(aerospace list-workspaces --monitor 1); do
     --set space.$sid \
     drawing=off \
     background.color=0x00RRGGBB \
-    background.corner_radius=5 \
+    background.corner_radius=14 \
     background.drawing=on \
     background.border_color=0x33FFFFFF \
     background.border_width=0 \

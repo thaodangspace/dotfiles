@@ -158,6 +158,10 @@ if.app-id = 'com.openai.chat'
 run = ["layout floating", "move-node-to-workspace 3"]
 
 [[on-window-detected]]
+if.app-id = 'com.tinyspeck.slackmacgap'
+run = ["layout floating", "move-node-to-workspace 3"]
+
+[[on-window-detected]]
 if.app-id = 'com.DanPristupov.Fork'
 run = ["layout floating", "move-node-to-workspace 4"]
 
