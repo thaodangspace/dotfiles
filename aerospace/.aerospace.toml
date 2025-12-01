@@ -2,7 +2,7 @@ after-startup-command = ['exec-and-forget sketchybar']
 
 # Notify Sketchybar about workspace change
 exec-on-workspace-change = [
-    '/bin/bash',
+    '/bin/zsh',
     '-c',
     'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE',
 ]
