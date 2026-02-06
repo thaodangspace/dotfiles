@@ -83,16 +83,14 @@
       "model": "openai/gpt-oss-20b"
     }
   },
-  "show_edit_predictions": false,
+  "show_edit_predictions": true,
   "edit_predictions": {
-    "disabled_globs": [],
-    "mode": "eager",
-    "copilot": {
-      "proxy": null,
-      "proxy_no_verify": null,
-      "enterprise_uri": null
-    },
-    "enabled_in_text_threads": false
+      "mode": "eager",
+      "provider": "ollama",
+      "ollama": {
+        "api_url": "http://100.117.191.67:11434",
+        "model": "qwen2.5-coder:7b",
+      },
   },
   "languages": {
     "JavaScript": {

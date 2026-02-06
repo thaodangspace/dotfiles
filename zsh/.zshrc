@@ -133,3 +133,4 @@ alias claude-antigravity='CLAUDE_CONFIG_DIR=~/.claude-account-antigravity ANTHRO
 export PATH="$PATH:/Users/dt/.lmstudio/bin"
 # End of LM Studio CLI section
 export PATH="$HOME/.local/bin:$PATH"
+export HAPPY_SERVER_URL="https://happy.home.thaodang.space"
