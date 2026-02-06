@@ -8,7 +8,7 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   "confirm_quit": true,
-  "disable_ai": true,
+  "disable_ai": false,
   "agent_servers": {
     "claude": {}
   },
@@ -17,67 +17,25 @@
   },
   "ssh_connections": [
     {
-      "host": "homelab",
+      "host": "orb",
+      "username": "dt",
       "args": [],
       "projects": [
         {
           "paths": [
-            "/home/dt/Code/agentsandbox"
+            "/home/dt"
           ]
-        },
+        }
+      ]
+    },
+    {
+      "host": "fedora",
+      "username": "dt",
+      "args": [],
+      "projects": [
         {
           "paths": [
-            "/home/dt/Code/vsee/backend/vc-api-emr"
-          ]
-        },
-        {
-          "paths": [
-            "/home/dt/Code/vsee/evisit"
-          ]
-        },
-        {
-          "paths": [
-            "/home/dt/Code/vsee/frontend/vc-page-admin"
-          ]
-        },
-        {
-          "paths": [
-            "/home/dt/Code/vsee/frontend/vc-page-editor"
-          ]
-        },
-        {
-          "paths": [
-            "/home/dt/Code/vsee/frontend/vc-page-emr"
-          ]
-        },
-        {
-          "paths": [
-            "/home/dt/Code/vsee/frontend/vc-page-formio"
-          ]
-        },
-        {
-          "paths": [
-            "/home/dt/Code/vsee/frontend/vc-page-lib"
-          ]
-        },
-        {
-          "paths": [
-            "/home/dt/Code/vsee/frontend/vc-page-member"
-          ]
-        },
-        {
-          "paths": [
-            "/home/dt/Code/vsee/frontend/vc-page-provider"
-          ]
-        },
-        {
-          "paths": [
-            "/home/dt/Code/vsee/frontend/vc-page-workflows"
-          ]
-        },
-        {
-          "paths": [
-            "/home/dt/Code/vsee/frontend/workflow-e2e"
+            "/home/dt"
           ]
         }
       ]
@@ -87,9 +45,9 @@
   "buffer_font_size": 16,
   "ui_font_family": ".ZedMono",
   "theme": {
-    "mode": "system",
+    "mode": "dark",
     "light": "Dayfox - blurred",
-    "dark": "One Dark"
+    "dark": "Catppuccin Mocha"
   },
   "relative_line_numbers": "enabled",
   "title_bar": {
@@ -124,9 +82,6 @@
       "provider": "lmstudio",
       "model": "openai/gpt-oss-20b"
     }
-  },
-  "features": {
-    "edit_prediction_provider": "none"
   },
   "show_edit_predictions": false,
   "edit_predictions": {
