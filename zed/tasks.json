@@ -7,23 +7,27 @@
     "allow_concurrent_runs": false
   },
   {
-    "label": "File Finder",
-    "command": "tv text --no-remote --no-help --tick-rate 120 | read -alz res; and zed $res",
+    "label": "file_finder",
+    "command": "zed \"$(tv files)\"",
     "hide": "always",
-    "allow_concurrent_runs": false,
-    "use_new_terminal": true,
-    "shell": {
-      "program": "/bin/zsh"
-    }
+    "allow_concurrent_runs": true,
+    "use_new_terminal": true
   },
   {
-    "label": "Find in Files",
-    "command": "zed \"$(tv text)\"",
-    "hide": "always",
-    "allow_concurrent_runs": false,
-    "use_new_terminal": true,
-    "shell": {
-      "program": "/bin/zsh"
+      "label": "live_grep",
+      "command": "zed \"$(tv text --keybindings 'enter=\"confirm_selection\"')\"",
+      "hide": "always",
+      "allow_concurrent_runs": true,
+      "use_new_terminal": true,
+      "shell": {
+        "program": "sh",
+      },
+  },
+  {
+      "label": "yazi",
+      "command": "ya_zed $ZED_FILE",
+      "hide": "always",
+      "allow_concurrent_runs": true,
+      "use_new_terminal": true
     }
-  }
 ]

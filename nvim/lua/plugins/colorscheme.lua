@@ -1,45 +1,22 @@
 -- lua/plugins/colorscheme.lua
 return {
   {
-    "catppuccin/nvim",
-    name = "catppuccin",
+    "craftzdog/solarized-osaka.nvim",
+    lazy = false,
     priority = 1000,
-    version = false,
     opts = {
-      transparent_background = true,
-      flavour = "mocha",
-      integrations = {
-        bufferline = true,
-        treesitter = true,
-        cmp = true,
-        gitsigns = true,
-        telescope = { enabled = true },
-        which_key = true,
-        mason = true,
-        noice = true,
-        notify = true,
+      transparent = true,
+      styles = {
+        sidebars = "transparent",
+        floats = "transparent",
       },
     },
-    config = function(_, opts)
-      require("catppuccin").setup(opts)
-    end,
   },
 
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin",
+      colorscheme = "solarized-osaka",
     },
-  },
-
-  {
-    "akinsho/bufferline.nvim",
-    optional = true,
-    opts = function(_, opts)
-      local catppuccin_hl = require("catppuccin.groups.integrations.bufferline").get()
-      opts = opts or {}
-      opts.highlights = catppuccin_hl
-      return opts
-    end,
   },
 }

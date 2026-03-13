@@ -138,7 +138,7 @@ p = ['exec-and-forget nowplaying-cli togglePlayPause', 'mode main']
 # Auto-float Ghostty windows when detected
 [[on-window-detected]]
 if.app-id = 'com.mitchellh.ghostty'
-run = ["layout floating", "move-node-to-workspace 1"]
+run = ["layout floating", "move-node-to-workspace 3"]
 
 [[on-window-detected]]
 if.app-id = 'dev.zed.Zed'

@@ -134,3 +134,31 @@ export PATH="$PATH:/Users/dt/.lmstudio/bin"
 # End of LM Studio CLI section
 export PATH="$HOME/.local/bin:$PATH"
 export HAPPY_SERVER_URL="https://happy.home.thaodang.space"
+
+alias ccs='~/code/claude-code-switcher/ccs'
+alias v='nvim'
+
+function ya_zed() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXX")"
+	yazi "$@" --chooser-file="$tmp"
+
+	local opened_file=$(cat -- "$tmp" | head -n 1)
+	zed -- "$opened_file"
+
+	rm -f -- "$tmp"
+	exit
+}
+
+# bun completions
+[ -s "/Users/dt/.bun/_bun" ] && source "/Users/dt/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# php@8.4
+export PATH="/opt/homebrew/opt/php@8.4/bin:$PATH"
+export PATH="/opt/homebrew/opt/php@8.4/sbin:$PATH"
+
+# Added by Antigravity
+export PATH="/Users/dt/.antigravity/antigravity/bin:$PATH"

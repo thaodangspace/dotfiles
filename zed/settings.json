@@ -7,13 +7,45 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "project_panel": {
+    "dock": "left",
+  },
+  "language_models": {
+    "openai_compatible": {
+      "llamacpp": {
+        "api_url": "http://127.0.0.1:8080/v1",
+        "available_models": [
+          {
+            "name": "qwen3.5-35b",
+            "max_tokens": 200000,
+            "max_output_tokens": 32000,
+            "max_completion_tokens": 200000,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": true,
+              "prompt_cache_key": false,
+              "chat_completions": true,
+            },
+          },
+        ],
+      },
+    },
+  },
+  "redact_private_values": false,
+  "use_system_path_prompts": false,
+  "use_system_prompts": false,
   "confirm_quit": true,
   "disable_ai": false,
   "agent_servers": {
-    "claude": {}
+    "claude-acp": {
+      "type": "registry",
+    },
   },
   "git_panel": {
-    "sort_by_path": true
+    "tree_view": true,
+    "dock": "right",
+    "sort_by_path": true,
   },
   "ssh_connections": [
     {
@@ -22,11 +54,9 @@
       "args": [],
       "projects": [
         {
-          "paths": [
-            "/home/dt"
-          ]
-        }
-      ]
+          "paths": ["/home/dt"],
+        },
+      ],
     },
     {
       "host": "fedora",
@@ -34,87 +64,91 @@
       "args": [],
       "projects": [
         {
-          "paths": [
-            "/home/dt"
-          ]
-        }
-      ]
-    }
+          "paths": ["/home/dt"],
+        },
+        {
+          "paths": ["/home/dt/Code/self-hosted"],
+        },
+      ],
+    },
   ],
   "ui_font_size": 16,
   "buffer_font_size": 16,
   "ui_font_family": ".ZedMono",
   "theme": {
     "mode": "dark",
-    "light": "Dayfox - blurred",
-    "dark": "Catppuccin Mocha"
+    "light": "Catppuccin Latte",
+    "dark": "Nightfox - opaque",
   },
   "relative_line_numbers": "enabled",
   "title_bar": {
-    "show_user_picture": false
+    "show_user_picture": false,
   },
   "terminal": {
-    "font_family": "BlexMono Nerd Font Mono"
+    "dock": "bottom",
+    "font_family": "BlexMono Nerd Font Mono",
   },
   "vim_mode": true,
   "diagnostics": {
     "inline": {
-      "enabled": true
-    }
+      "enabled": true,
+    },
   },
   "collaboration_panel": {
-    "button": false
+    "button": false,
   },
   "search": {
-    "button": false
+    "button": false,
   },
   "outline_panel": {
-    "button": false
+    "button": false,
   },
   "notification_panel": {
-    "button": false
+    "button": false,
   },
   "agent": {
-    "always_allow_tool_actions": true,
-    "play_sound_when_agent_done": false,
-    "default_profile": "ask",
     "default_model": {
-      "provider": "lmstudio",
-      "model": "openai/gpt-oss-20b"
-    }
+      "provider": "llamacpp",
+      "model": "qwen3.5-35b",
+      "enable_thinking": false,
+    },
+    "favorite_models": [],
+    "model_parameters": [],
   },
   "show_edit_predictions": true,
   "edit_predictions": {
-      "mode": "eager",
-      "provider": "ollama",
-      "ollama": {
-        "api_url": "http://100.117.191.67:11434",
-        "model": "qwen2.5-coder:7b",
-      },
+    "mode": "eager",
+    "provider": "open_ai_compatible_api",
+    "open_ai_compatible_api": {
+      "api_url": "http://100.111.225.41:1234/v1/completions",
+      "model": "zeta",
+      "prompt_format": "qwen",
+      "max_output_tokens": 64,
+    },
   },
   "languages": {
     "JavaScript": {
       "inlay_hints": {
-        "enabled": true
+        "enabled": true,
       },
       "formatter": "prettier",
-      "format_on_save": "off"
+      "format_on_save": "off",
     },
     "TypeScript": {
       "inlay_hints": {
-        "enabled": true
+        "enabled": true,
       },
-      "formatter": "prettier"
+      "formatter": "prettier",
     },
     "TSX": {
-      "formatter": "prettier"
+      "formatter": "prettier",
     },
     "JSON": {
-      "formatter": "prettier"
-    }
+      "formatter": "prettier",
+    },
   },
   "prettier": {
-    "allowed": true
+    "allowed": true,
   },
-  "format_on_save": "off"
+  "format_on_save": "off",
 }
