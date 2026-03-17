@@ -4,10 +4,6 @@
     "bindings": {
       "ctrl-p": "projects::OpenRecent",
       "ctrl-shift-g": "git_panel::ToggleFocus",
-      "cmd-p": [
-        "task::Spawn",
-        { "task_name": "file_finder", "reveal_target": "center" },
-      ]
     },
   },
   {
@@ -30,10 +26,6 @@
         "task::Spawn",
         { "task_name": "live_grep", "reveal_target": "center" },
       ],
-      "space e": [
-        "task::Spawn",
-        { "task_name": "yazi", "reveal_target": "center" },
-      ],
       "s": "buffer_search::Deploy"
     },
   },
@@ -45,11 +37,7 @@
       "r": "project_panel::Rename",
       "l": "project_panel::Open",
       "shift-l": "project_panel::OpenSplitVertical",
-      "shift-a": "project_panel::NewDirectory",
-      "cmd-shift-f": [
-        "task::Spawn",
-        { "task_name": "live_grep", "reveal_target": "center" },
-      ],
+      "shift-a": "project_panel::NewDirectory"
     },
   },
   {

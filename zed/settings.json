@@ -31,17 +31,17 @@
   "language_models": {
     "openai_compatible": {
       "lms": {
-        "api_url": "http://localhost:1234/v1",
+        "api_url": "http://100.117.191.67:1234/v1",
         "available_models": [
           {
-            "name": "qwen3.5-27b-claude-4.6-opus-distilled-mlx",
+            "name": "qwen3.5-35b-a3b",
             "max_tokens": 200000,
             "max_output_tokens": 32000,
             "max_completion_tokens": 200000,
             "capabilities": {
               "tools": true,
-              "images": false,
-              "parallel_tool_calls": false,
+              "images": true,
+              "parallel_tool_calls": true,
               "prompt_cache_key": false,
               "chat_completions": true
             }
@@ -114,7 +114,7 @@
   "theme": {
     "mode": "dark",
     "light": "Catppuccin Latte",
-    "dark": "Ayu Dark",
+    "dark": "Catppuccin Mocha - No Italics",
   },
   "relative_line_numbers": "enabled",
   "title_bar": {
@@ -145,8 +145,8 @@
   "agent": {
     "default_profile": "ask",
     "default_model": {
-      "provider": "llamacpp",
-      "model": "qwen3.5-35b",
+      "provider": "lmstudio",
+      "model": "zeta",
       "enable_thinking": false,
     },
     "favorite_models": [],
