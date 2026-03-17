@@ -7,11 +7,47 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "lsp": {
+    "vtsls": {
+      "settings": {
+        "typescript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always"
+          }
+        },
+        "javascript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always"
+          }
+        }
+      },
+      "enable_lsp_tasks": true
+    }
+  },
+  "allow_rewrap": "anywhere",
   "project_panel": {
     "dock": "left",
   },
   "language_models": {
     "openai_compatible": {
+      "lms": {
+        "api_url": "http://localhost:1234/v1",
+        "available_models": [
+          {
+            "name": "qwen3.5-27b-claude-4.6-opus-distilled-mlx",
+            "max_tokens": 200000,
+            "max_output_tokens": 32000,
+            "max_completion_tokens": 200000,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": false,
+              "chat_completions": true
+            }
+          }
+        ]
+      },
       "llamacpp": {
         "api_url": "http://127.0.0.1:8080/v1",
         "available_models": [
@@ -78,7 +114,7 @@
   "theme": {
     "mode": "dark",
     "light": "Catppuccin Latte",
-    "dark": "Nightfox - opaque",
+    "dark": "Ayu Dark",
   },
   "relative_line_numbers": "enabled",
   "title_bar": {
@@ -107,6 +143,7 @@
     "button": false,
   },
   "agent": {
+    "default_profile": "ask",
     "default_model": {
       "provider": "llamacpp",
       "model": "qwen3.5-35b",
