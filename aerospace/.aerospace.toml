@@ -111,7 +111,7 @@ alt-shift-f = 'fullscreen'
 alt-shift-space = ['layout floating tiling', 'mode main']
 
 # Key binding to toggle Ghostty as floating on current workspace
-alt-t = 'exec-and-forget bash $HOME/.config/scripts/float_ghostty.sh'
+# alt-t = 'exec-and-forget bash $HOME/.config/scripts/float_ghostty.sh'
 
 alt-shift-semicolon = 'mode service'
 
@@ -138,23 +138,15 @@ p = ['exec-and-forget nowplaying-cli togglePlayPause', 'mode main']
 # Auto-float Ghostty windows when detected
 [[on-window-detected]]
 if.app-id = 'com.mitchellh.ghostty'
-run = ["layout floating", "move-node-to-workspace 3"]
+run = ["layout floating", "move-node-to-workspace 1"]
 
 [[on-window-detected]]
 if.app-id = 'dev.zed.Zed'
-run = ["move-node-to-workspace 1"]
+run = ["layout floating", "move-node-to-workspace 1"]
 
 [[on-window-detected]]
 if.app-id = 'com.google.Chrome'
 run = ["layout floating", "move-node-to-workspace 2"]
-
-[[on-window-detected]]
-if.app-id = 'com.todesktop.230313mzl4w4u92'
-run = ["layout floating", "move-node-to-workspace 3"]
-
-[[on-window-detected]]
-if.app-id = 'com.openai.chat'
-run = ["layout floating", "move-node-to-workspace 3"]
 
 [[on-window-detected]]
 if.app-id = 'com.tinyspeck.slackmacgap'

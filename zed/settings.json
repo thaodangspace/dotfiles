@@ -7,6 +7,11 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "icon_theme": {
+    "mode": "light",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)"
+  },
   "lsp": {
     "vtsls": {
       "settings": {
@@ -27,6 +32,7 @@
   "allow_rewrap": "anywhere",
   "project_panel": {
     "dock": "left",
+    "hide_hidden": false
   },
   "language_models": {
     "openai_compatible": {
@@ -80,7 +86,7 @@
   },
   "git_panel": {
     "tree_view": true,
-    "dock": "right",
+    "dock": "left",
     "sort_by_path": true,
   },
   "ssh_connections": [
@@ -113,10 +119,9 @@
   "ui_font_family": ".ZedMono",
   "theme": {
     "mode": "dark",
-    "light": "Catppuccin Latte",
-    "dark": "Catppuccin Mocha - No Italics",
+    "light": "Rosé Pine Dawn",
+    "dark": "Ayu Dark",
   },
-  "relative_line_numbers": "enabled",
   "title_bar": {
     "show_user_picture": false,
   },
@@ -143,16 +148,16 @@
     "button": false,
   },
   "agent": {
-    "default_profile": "ask",
+    "default_profile": "write",
     "default_model": {
       "provider": "lmstudio",
-      "model": "zeta",
+      "model": "qwen3.5-35b-a3b",
       "enable_thinking": false,
     },
     "favorite_models": [],
     "model_parameters": [],
   },
-  "show_edit_predictions": true,
+    "show_edit_predictions": false,
   "edit_predictions": {
     "mode": "eager",
     "provider": "open_ai_compatible_api",

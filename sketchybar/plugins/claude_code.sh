@@ -3,8 +3,8 @@
 CCS="$HOME/code/claude-code-switcher/ccs"
 STATE_FILE="/tmp/claude_code_cycle.state"
 
-CYCLE_ORDER="glm local qwen personal vsee"
-PROVIDERS="glm local"
+CYCLE_ORDER="nanogpt qwen personal vsee"
+PROVIDERS="nanogpt qwen"
 ACCOUNTS="personal vsee"
 
 cycle() {
