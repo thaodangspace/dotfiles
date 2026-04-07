@@ -127,9 +127,6 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
-alias claude-antigravity='CLAUDE_CONFIG_DIR=~/.claude-account-antigravity ANTHROPIC_BASE_URL="http://localhost:8080" ANTHROPIC_AUTH_TOKEN="test" ANTHROPIC_MODEL="claude-opus-4-5-thinking" command claude'
-
-# Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/dt/.lmstudio/bin"
 # End of LM Studio CLI section
 export PATH="$HOME/.local/bin:$PATH"
@@ -137,6 +134,7 @@ export HAPPY_SERVER_URL="https://happy.home.thaodang.space"
 
 alias ccs='~/code/claude-code-switcher/ccs'
 alias v='nvim'
+alias claude='nono run --allow-cwd --allow /Users/dt/.npm --allow /Users/dt/.local/state --allow /Users/dt/.local/share --profile claude-code -- claude'
 
 function ya_zed() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXX")"

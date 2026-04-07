@@ -9,8 +9,10 @@ font-family-bold = "IBM Plex Mono Bold"
 font-size = 16
 adjust-cell-height = 10%
 
-# Hide the title bar on macOS
-macos-titlebar-style = hidden
+# Show the title bar and tabs on macOS
+macos-titlebar-style = tabs
+window-theme = ghostty
+window-title-font-family = "IBM Plex Mono Text"
 
 # Window size - always open with consistent dimensions
 # Size is in terminal grid cells (characters wide by lines high)

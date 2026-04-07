@@ -78,7 +78,7 @@
   "use_system_path_prompts": false,
   "use_system_prompts": false,
   "confirm_quit": true,
-  "disable_ai": false,
+  "disable_ai": true,
   "agent_servers": {
     "claude-acp": {
       "type": "registry",
@@ -96,9 +96,11 @@
       "args": [],
       "projects": [
         {
-          "paths": ["/home/dt"],
-        },
-      ],
+          "paths": [
+            "/home/dt"
+          ]
+        }
+      ]
     },
     {
       "host": "fedora",
@@ -106,13 +108,39 @@
       "args": [],
       "projects": [
         {
-          "paths": ["/home/dt"],
+          "paths": [
+            "/home/dt"
+          ]
         },
         {
-          "paths": ["/home/dt/Code/self-hosted"],
-        },
-      ],
+          "paths": [
+            "/home/dt/Code/self-hosted"
+          ]
+        }
+      ]
     },
+    {
+      "host": "192.168.1.11",
+      "username": "dt",
+      "args": [],
+      "projects": [
+        {
+          "paths": [
+            "/home/dt/.claude"
+          ]
+        },
+        {
+          "paths": [
+            "/home/dt/.picoclaw/./"
+          ]
+        },
+        {
+          "paths": [
+            "/home/dt/code/dontsleep"
+          ]
+        }
+      ]
+    }
   ],
   "ui_font_size": 16,
   "buffer_font_size": 16,
@@ -120,7 +148,7 @@
   "theme": {
     "mode": "dark",
     "light": "Rosé Pine Dawn",
-    "dark": "Ayu Dark",
+    "dark": "Catppuccin Mocha - No Italics",
   },
   "title_bar": {
     "show_user_picture": false,
