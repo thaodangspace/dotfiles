@@ -10,7 +10,7 @@ font-size = 16
 adjust-cell-height = 10%
 
 # Show the title bar and tabs on macOS
-macos-titlebar-style = hidden
+macos-titlebar-style = tabs
 window-theme = ghostty
 window-title-font-family = "IBM Plex Mono Text"
 
