@@ -78,7 +78,7 @@
   "use_system_path_prompts": false,
   "use_system_prompts": false,
   "confirm_quit": true,
-  "disable_ai": true,
+  "disable_ai": false,
   "agent_servers": {
     "claude-acp": {
       "type": "registry",

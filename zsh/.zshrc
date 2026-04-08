@@ -134,7 +134,7 @@ export HAPPY_SERVER_URL="https://happy.home.thaodang.space"
 
 alias ccs='~/code/claude-code-switcher/ccs'
 alias v='nvim'
-alias claude='nono run --allow-cwd --allow /Users/dt/.npm --allow /Users/dt/.local/state --allow /Users/dt/.local/share --profile claude-code -- claude'
+alias claude='nono run --allow-cwd --allow /Users/dt/.npm --allow /Users/dt/.local/state --allow /Users/dt/.local/share --allow /Users/dt/.brv-cli --profile claude-code -- claude'
 
 function ya_zed() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXX")"
@@ -163,3 +163,6 @@ export PATH="/Users/dt/.antigravity/antigravity/bin:$PATH"
 
 # zsh-autosuggestions
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# ByteRover CLI
+export PATH="$HOME/.brv-cli/bin:$PATH"
