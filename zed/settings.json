@@ -54,24 +54,6 @@
           }
         ]
       },
-      "llamacpp": {
-        "api_url": "http://127.0.0.1:8080/v1",
-        "available_models": [
-          {
-            "name": "qwen3.5-35b",
-            "max_tokens": 200000,
-            "max_output_tokens": 32000,
-            "max_completion_tokens": 200000,
-            "capabilities": {
-              "tools": true,
-              "images": false,
-              "parallel_tool_calls": true,
-              "prompt_cache_key": false,
-              "chat_completions": true,
-            },
-          },
-        ],
-      },
     },
   },
   "redact_private_values": false,

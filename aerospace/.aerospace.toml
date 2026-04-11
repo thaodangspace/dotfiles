@@ -142,15 +142,27 @@ run = ["layout floating", "move-node-to-workspace 1"]
 
 [[on-window-detected]]
 if.app-id = 'dev.zed.Zed'
-run = ["layout floating", "move-node-to-workspace 1"]
-
-[[on-window-detected]]
-if.app-id = 'com.google.Chrome'
 run = ["layout floating", "move-node-to-workspace 2"]
 
 [[on-window-detected]]
-if.app-id = 'com.tinyspeck.slackmacgap'
+if.app-id = 'abnerworks.Typora'
+run = ["layout floating", "move-node-to-workspace 2"]
+
+[[on-window-detected]]
+if.app-id = 'com.google.Chrome'
 run = ["layout floating", "move-node-to-workspace 3"]
+
+[[on-window-detected]]
+if.app-id = 'org.mozilla.firefoxdeveloperedition'
+run = ["layout floating", "move-node-to-workspace 3"]
+
+[[on-window-detected]]
+if.app-id = 'com.tinyspeck.slackmacgap'
+run = ["layout floating", "move-node-to-workspace 4"]
+
+[[on-window-detected]]
+if.app-id = 'com.hnc.Discord'
+run = ["layout floating", "move-node-to-workspace 4"]
 
 [[on-window-detected]]
 if.app-id = 'com.DanPristupov.Fork'
