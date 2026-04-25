@@ -133,8 +133,8 @@ export PATH="$HOME/.local/bin:$PATH"
 
 alias ccs='~/code/claude-code-switcher/ccs'
 alias v='nvim'
-alias claude='nono run --allow-cwd --allow ~/.npm --allow ~/.local/state --allow ~/.local/share --allow ~/code --profile claude-code -- claude --dangerously-skip-permissions'
-alias pi='nono run --allow-cwd --allow ~/.npm --allow ~/.pi --allow ~/.agents --allow ~/.claude --allow ~/.local/state --allow ~/.local/share --allow ~/code --profile pi -- pi'
+alias claude='nono run --allow-cwd --allow ~/go --allow ~/.npm --allow ~/.local/state --allow ~/.local/share --allow ~/code --profile claude-code -- claude --dangerously-skip-permissions'
+alias pi='nono run --allow-cwd --allow ~/go --allow ~/.npm --allow ~/.pi --allow ~/.agents --allow ~/.claude --allow ~/.local/state --allow ~/.local/share --allow ~/code --profile pi -- pi'
 
 # bun completions
 [ -s "/Users/dt/.bun/_bun" ] && source "/Users/dt/.bun/_bun"
