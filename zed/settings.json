@@ -7,6 +7,10 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "status_bar": {
+    "active_language_button": true
+  },
+  "proxy": "",
   "icon_theme": {
     "mode": "light",
     "light": "Zed (Default)",
@@ -31,6 +35,7 @@
   },
   "allow_rewrap": "anywhere",
   "project_panel": {
+    "button": true,
     "dock": "left",
     "hide_hidden": false
   },
@@ -40,7 +45,7 @@
         "api_url": "http://100.117.191.67:1234/v1",
         "available_models": [
           {
-            "name": "qwen3.5-35b-a3b",
+            "name": "qwen3.6-35b-a3b-mlx",
             "max_tokens": 200000,
             "max_output_tokens": 32000,
             "max_completion_tokens": 200000,
@@ -62,6 +67,9 @@
   "confirm_quit": true,
   "disable_ai": false,
   "agent_servers": {
+    "pi-acp": {
+      "type": "registry"
+    },
     "claude-acp": {
       "type": "registry",
     },
@@ -130,7 +138,7 @@
   "theme": {
     "mode": "dark",
     "light": "Rosé Pine Dawn",
-    "dark": "Catppuccin Mocha - No Italics",
+    "dark": "Ayu Dark",
   },
   "title_bar": {
     "show_user_picture": false,
@@ -146,22 +154,24 @@
     },
   },
   "collaboration_panel": {
+    "dock": "right",
     "button": false,
   },
   "search": {
     "button": false,
   },
   "outline_panel": {
-    "button": false,
-  },
-  "notification_panel": {
+    "dock": "right",
     "button": false,
   },
   "agent": {
-    "default_profile": "write",
+    "flexible": false,
+    "sidebar_side": "right",
+    "dock": "right",
+    "default_profile": "ask",
     "default_model": {
       "provider": "lmstudio",
-      "model": "qwen3.5-35b-a3b",
+      "model": "qwen3.6-35b-a3b-ud-mlx",
       "enable_thinking": false,
     },
     "favorite_models": [],
