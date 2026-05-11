@@ -38,7 +38,7 @@ ZSH_THEME="robbyrussell"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -133,7 +133,7 @@ export PATH="$HOME/.local/bin:$PATH"
 
 alias ccs='~/code/claude-code-switcher/ccs'
 alias v='nvim'
-alias claude='nono run --allow-cwd --allow ~/go --allow ~/.npm --allow ~/.local/state --allow ~/.local/share --allow ~/code --profile claude-code -- claude --dangerously-skip-permissions'
+alias claude-sandbox='nono run --allow-cwd --allow ~/go --allow ~/.npm --allow ~/.local/state --allow ~/.local/share --allow ~/code --profile claude-code -- claude --dangerously-skip-permissions'
 alias pi='nono run --allow-cwd --allow ~/go --allow ~/.npm --allow ~/.pi --allow ~/.agents --allow ~/.claude --allow ~/.local/state --allow ~/.local/share --allow ~/code --profile pi -- pi'
 
 # bun completions
@@ -149,3 +149,12 @@ export PATH="/opt/homebrew/opt/php@8.4/sbin:$PATH"
 
 # zsh-autosuggestions
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Always show pwd in terminal tab/window title (instead of the running process)
+autoload -Uz add-zsh-hook
+function _set_pwd_title() {
+  print -Pn "\e]2;%~\a"
+  print -Pn "\e]1;%~\a"
+}
+add-zsh-hook precmd _set_pwd_title
+add-zsh-hook preexec _set_pwd_title

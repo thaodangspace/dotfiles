@@ -6,7 +6,7 @@ background = #031219
 
 font-family = "IBM Plex Mono Text"
 font-family-bold = "IBM Plex Mono Bold"
-font-size = 16
+font-size = 18
 adjust-cell-height = 10%
 
 # Show the title bar and tabs on macOS
