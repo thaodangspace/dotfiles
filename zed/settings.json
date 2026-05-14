@@ -12,9 +12,9 @@
   },
   "proxy": "",
   "icon_theme": {
-    "mode": "dark",
+    "mode": "light",
     "light": "Zed (Default)",
-    "dark": "Zed (Default)"
+    "dark": "Catppuccin Mocha"
   },
   "lsp": {
     "vtsls": {
