@@ -12,7 +12,7 @@
   },
   "proxy": "",
   "icon_theme": {
-    "mode": "light",
+    "mode": "dark",
     "light": "Zed (Default)",
     "dark": "Catppuccin Mocha"
   },
@@ -110,23 +110,18 @@
       ]
     },
     {
-      "host": "192.168.1.11",
+      "host": "192.168.1.17",
       "username": "dt",
       "args": [],
       "projects": [
         {
           "paths": [
-            "/home/dt/.claude"
+            "/home/dt/.pi"
           ]
         },
         {
           "paths": [
-            "/home/dt/.picoclaw/./"
-          ]
-        },
-        {
-          "paths": [
-            "/home/dt/code/dontsleep"
+            "/home/dt/code/agent-web"
           ]
         }
       ]

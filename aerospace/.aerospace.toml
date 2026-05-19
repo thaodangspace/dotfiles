@@ -136,8 +136,13 @@ shift-down = ['volume set 0', 'mode main']
 p = ['exec-and-forget nowplaying-cli togglePlayPause', 'mode main']
 
 # Auto-float Ghostty windows when detected
+# net.kovidgoyal.kitty
 [[on-window-detected]]
 if.app-id = 'com.mitchellh.ghostty'
+run = ["layout floating", "move-node-to-workspace 1"]
+
+[[on-window-detected]]
+if.app-id = 'net.kovidgoyal.kitty'
 run = ["layout floating", "move-node-to-workspace 1"]
 
 [[on-window-detected]]
@@ -146,6 +151,10 @@ run = ["layout floating", "move-node-to-workspace 2"]
 
 [[on-window-detected]]
 if.app-id = 'abnerworks.Typora'
+run = ["layout floating", "move-node-to-workspace 2"]
+
+[[on-window-detected]]
+if.app-id = 'com.DanPristupov.Fork'
 run = ["layout floating", "move-node-to-workspace 2"]
 
 [[on-window-detected]]
@@ -165,12 +174,8 @@ if.app-id = 'com.hnc.Discord'
 run = ["layout floating", "move-node-to-workspace 4"]
 
 [[on-window-detected]]
-if.app-id = 'com.DanPristupov.Fork'
-run = ["layout floating", "move-node-to-workspace 4"]
-
-[[on-window-detected]]
 if.app-id = 'ru.keepcoder.Telegram'
-run = ["layout floating", "move-node-to-workspace 5"]
+run = ["layout floating", "move-node-to-workspace 4"]
 
 [[on-window-detected]]
 if.app-id = 'com.apple.Safari'

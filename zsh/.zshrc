@@ -115,18 +115,6 @@ export PATH="$PATH:$HOME/.lmstudio/bin"
 #Rust cargo
 export PATH="$HOME/.cargo/bin:$PATH"
 
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/tdxng/.lmstudio/bin"
-# End of LM Studio CLI section
-
-
-# pnpm
-export PNPM_HOME="/Users/tdxng/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
 export PATH="$PATH:/Users/dt/.lmstudio/bin"
 # End of LM Studio CLI section
 export PATH="$HOME/.local/bin:$PATH"
