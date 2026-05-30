@@ -93,7 +93,7 @@
       ]
     },
     {
-      "host": "fedora",
+      "host": "192.168.1.17",
       "username": "dt",
       "args": [],
       "projects": [
@@ -102,18 +102,6 @@
             "/home/dt"
           ]
         },
-        {
-          "paths": [
-            "/home/dt/Code/self-hosted"
-          ]
-        }
-      ]
-    },
-    {
-      "host": "192.168.1.17",
-      "username": "dt",
-      "args": [],
-      "projects": [
         {
           "paths": [
             "/home/dt/.pi"

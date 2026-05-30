@@ -123,6 +123,7 @@ alias ccs='~/code/claude-code-switcher/ccs'
 alias v='nvim'
 alias claude-sandbox='nono run --allow-cwd --allow ~/go --allow ~/.npm --allow ~/.local/state --allow ~/.local/share --allow ~/code --profile claude-code -- claude --dangerously-skip-permissions'
 alias pi-sandbox='nono run --allow-cwd --allow ~/go --allow ~/.npm --allow ~/.pi --allow ~/.agents --allow ~/.claude --allow ~/.local/state --allow ~/.local/share --allow ~/code --profile pi -- pi'
+alias agy-sandbox='nono run --allow-cwd --allow ~/go --allow ~/.npm --allow ~/.gemini --allow ~/.antigravity --allow ~/.agents --allow ~/.local/state --allow ~/.local/share --allow ~/code --profile agy -- agy'
 
 # bun completions
 [ -s "/Users/dt/.bun/_bun" ] && source "/Users/dt/.bun/_bun"
@@ -146,3 +147,7 @@ function _set_pwd_title() {
 }
 add-zsh-hook precmd _set_pwd_title
 add-zsh-hook preexec _set_pwd_title
+
+
+# Added by Antigravity CLI installer
+export PATH="/Users/dt/.local/bin:$PATH"
