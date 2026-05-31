@@ -93,6 +93,30 @@ if [ "${1:-}" = "--preview" ]; then
   exit 0
 fi
 
+# Open editor subcommand (invoked by fzf): open specified editor on the active pane's current directory
+if [ "${1:-}" = "--open-editor" ]; then
+  editor="${2:-}"
+  tgt="${3:-}"
+  [ -n "$tgt" ] || exit 0
+  dir="$(tmux display-message -p -t "$tgt" '#{pane_current_path}' 2>/dev/null || true)"
+  if [ -d "$dir" ]; then
+    if [ "$editor" = "zed" ]; then
+      if command -v zed >/dev/null 2>&1; then
+        zed "$dir"
+      else
+        open -a Zed "$dir"
+      fi
+    elif [ "$editor" = "typora" ]; then
+      if command -v typora >/dev/null 2>&1; then
+        typora "$dir"
+      else
+        open -a Typora "$dir"
+      fi
+    fi
+  fi
+  exit 0
+fi
+
 # Client that invoked the keybinding (passed in), so we switch the right one.
 client="${1:-}"
 
@@ -145,7 +169,8 @@ sel="$(
       --delimiter=$'\t' --with-nth=2 \
       --preview="'$self' --preview {1}" \
       --preview-window='right,60%,wrap' \
-      --border --header='switch to window'
+      --bind "ctrl-e:execute-silent('$self' --open-editor zed {1})+abort,ctrl-o:execute-silent('$self' --open-editor typora {1})+abort" \
+      --border --header='Enter: switch | Ctrl-E: Zed | Ctrl-O: Typora'
 )" || exit 0
 
 target="${sel%%$'\t'*}"
