@@ -163,6 +163,33 @@ build() {
   )
 }
 
+list_directories() {
+  local current_dir="${1:-}"
+  if [ -n "$current_dir" ]; then
+    echo "$current_dir"
+  fi
+  echo "$HOME"
+  if [ -d "$HOME/code" ]; then
+    fd --type d --max-depth 3 --hidden --exclude .git --exclude node_modules --exclude Library --exclude .Trash . "$HOME/code" 2>/dev/null || true
+  fi
+  if [ -d "$HOME/go" ]; then
+    fd --type d --max-depth 3 --hidden --exclude .git --exclude node_modules --exclude Library --exclude .Trash . "$HOME/go" 2>/dev/null || true
+  fi
+  fd --type d --max-depth 1 --exclude .git --exclude Library --exclude .Trash --exclude Applications --exclude Public --exclude OrbStack --exclude Movies --exclude Music --exclude Pictures --exclude code --exclude go . "$HOME" 2>/dev/null || true
+}
+
+resolve_path() {
+  local input="$1"
+  local base_dir="${2:-$HOME}"
+  input="${input/#\~/$HOME}"
+  if [[ "$input" == /* ]]; then
+    echo "$input"
+  else
+    echo "$base_dir/$input"
+  fi
+}
+
+err=0
 sel="$(
   build | fzf --tmux center,85%,75% \
       --ansi --reverse --no-sort --prompt='window > ' \
@@ -170,10 +197,73 @@ sel="$(
       --preview="'$self' --preview {1}" \
       --preview-window='right,60%,wrap' \
       --bind "ctrl-e:execute-silent('$self' --open-editor zed {1})+abort,ctrl-o:execute-silent('$self' --open-editor typora {1})+abort" \
-      --border --header='Enter: switch | Ctrl-E: Zed | Ctrl-O: Typora'
-)" || exit 0
+      --border --header='Enter: switch | Ctrl-N: New | Ctrl-E: Zed | Ctrl-O: Typora' \
+      --print-query --expect=ctrl-n
+)" || err=$?
 
-target="${sel%%$'\t'*}"
+if [ "$err" -eq 130 ]; then
+  exit 0
+fi
+
+mapfile -t lines <<< "$sel"
+query="${lines[0]:-}"
+key="${lines[1]:-}"
+selection="${lines[2]:-}"
+
+if [ "$key" = "ctrl-n" ]; then
+  current_dir="$(tmux display-message -p -t "$client" -F '#{pane_current_path}' 2>/dev/null || echo "$HOME")"
+  prompt_name="${query:-new session}"
+
+  dir_err=0
+  dir_sel="$(
+    list_directories "$current_dir" | awk '!seen[$0]++' | fzf --tmux center,85%,75% \
+        --ansi --reverse --no-sort --prompt="dir for '$prompt_name' > " \
+        --print-query
+  )" || dir_err=$?
+
+  if [ "$dir_err" -eq 130 ] || [ -z "$dir_sel" ]; then
+    exit 0
+  fi
+
+  mapfile -t dir_lines <<< "$dir_sel"
+  dir_query="${dir_lines[0]:-}"
+  dir_selection="${dir_lines[1]:-}"
+
+  target_dir=""
+  if [ -n "$dir_selection" ]; then
+    target_dir="$dir_selection"
+  elif [ -n "$dir_query" ]; then
+    target_dir="$dir_query"
+  fi
+
+  [ -n "$target_dir" ] || exit 0
+
+  target_dir="$(resolve_path "$target_dir" "$current_dir")"
+  if [ ! -d "$target_dir" ]; then
+    mkdir -p "$target_dir"
+  fi
+
+  session_name="$query"
+  if [ -z "$session_name" ]; then
+    session_name="$(basename "$target_dir")"
+  fi
+  session_name="${session_name//:/-}"
+
+  # Build the switch-client args, targeting the launching client when known.
+  set --
+  [ -n "$client" ] && set -- -c "$client"
+
+  if tmux has-session -t "$session_name" 2>/dev/null; then
+    tmux new-window -t "$session_name" -c "$target_dir"
+    tmux switch-client "$@" -t "$session_name"
+  else
+    tmux new-session -d -s "$session_name" -c "$target_dir"
+    tmux switch-client "$@" -t "$session_name"
+  fi
+  exit 0
+fi
+
+target="${selection%%$'\t'*}"
 [ -n "$target" ] || exit 0
 
 # Build the switch-client args, targeting the launching client when known.
