@@ -9,4 +9,5 @@ stow -t ~ aerospace
 stow -t ~ zsh
 stow -t ~ wezterm
 stow -t ~ tmux
+stow -t ~/.agents/skills skills
 ```

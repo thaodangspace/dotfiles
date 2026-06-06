@@ -139,19 +139,15 @@ p = ['exec-and-forget nowplaying-cli togglePlayPause', 'mode main']
 # net.kovidgoyal.kitty
 [[on-window-detected]]
 if.app-id = 'com.mitchellh.ghostty'
-run = ["layout floating", "move-node-to-workspace 1"]
-
-[[on-window-detected]]
-if.app-id = 'net.kovidgoyal.kitty'
-run = ["layout floating", "move-node-to-workspace 1"]
+run = ["move-node-to-workspace 1"]
 
 [[on-window-detected]]
 if.app-id = 'dev.zed.Zed'
-run = ["layout floating", "move-node-to-workspace 2"]
+run = ["move-node-to-workspace 2"]
 
 [[on-window-detected]]
 if.app-id = 'abnerworks.Typora'
-run = ["layout floating", "move-node-to-workspace 2"]
+run = ["move-node-to-workspace 2"]
 
 [[on-window-detected]]
 if.app-id = 'com.DanPristupov.Fork'

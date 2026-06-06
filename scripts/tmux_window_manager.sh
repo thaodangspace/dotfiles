@@ -342,9 +342,9 @@ if [ "${1:-}" = "--popup-inner" ]; then
         --delimiter=$'\t' --with-nth=2 \
         --preview="'$self' --preview {1}" \
         --preview-window='right,60%,wrap' \
-        --bind "ctrl-e:execute-silent('$self' --open-editor zed {1})+abort,ctrl-o:execute-silent('$self' --open-editor typora {1})+abort" \
+        --bind "ctrl-z:execute-silent('$self' --open-editor zed {1})+abort,ctrl-t:execute-silent('$self' --open-editor typora {1})+abort" \
         --bind "ctrl-r:reload('$self' --build-from-cache)" \
-        --border --header='Enter: switch | Ctrl-N: New | Ctrl-E: Zed | Ctrl-O: Typora' \
+        --border --header='Enter: switch | Ctrl-N: New | Ctrl-Z: Zed | Ctrl-T: Typora' \
         --print-query --expect=ctrl-n
   )" || err=$?
 
