@@ -121,10 +121,11 @@ export PATH="$HOME/.local/bin:$PATH"
 
 alias ccs='~/code/claude-code-switcher/ccs'
 alias v='nvim'
-alias claude-sandbox='nono run --allow-cwd --allow ~/go --allow ~/.npm --allow ~/.local/state --allow ~/.local/share --allow ~/code --profile claude-code -- claude --dangerously-skip-permissions'
-alias pi-sandbox='nono run --allow-cwd --allow ~/go --allow ~/.npm --allow ~/.pi --allow ~/.agents --allow ~/.claude --allow ~/.local/state --allow ~/.local/share --allow ~/code --profile pi -- pi'
-alias agy-sandbox='nono run --allow-cwd --allow ~/go --allow ~/.npm --allow ~/.gemini --allow ~/.antigravity --allow ~/.agents --allow ~/.local/state --allow ~/.local/share --allow ~/code --profile agy -- agy'
-
+alias claude-sandbox='nono run --profile claude-code -- claude --dangerously-skip-permissions'
+alias pi='nono run --profile pi -- pi'
+alias pi-yolo='/opt/homebrew/bin/pi'
+alias agy='nono run --profile agy -- agy --dangerously-skip-permissions'
+alias opencode='nono run --profile opencode -- opencode'
 # bun completions
 [ -s "/Users/dt/.bun/_bun" ] && source "/Users/dt/.bun/_bun"
 
@@ -151,3 +152,9 @@ add-zsh-hook preexec _set_pwd_title
 
 # Added by Antigravity CLI installer
 export PATH="/Users/dt/.local/bin:$PATH"
+
+# opencode
+export PATH=/Users/dt/.opencode/bin:$PATH
+
+# Go-installed binaries (go install ...)
+export PATH="$HOME/go/bin:$PATH"

@@ -1,23 +1,25 @@
-theme = Ayu
+theme = Solarized Dark Patched
 
 background-opacity = 0.9
 background-blur-radius = 20
-background = #0D1017
+background = #031219
 
-font-family = "IBM Plex Mono Text"
+font-family = "IBM Plex Mono"
 font-family-bold = "IBM Plex Mono Bold"
 font-size = 18
-adjust-cell-height = 10%
-
 # Show the title bar and tabs on macOS
 macos-titlebar-style = tabs
 window-theme = ghostty
 window-title-font-family = "IBM Plex Mono Text"
 
-# Window size - always open with consistent dimensions
-# Size is in terminal grid cells (characters wide by lines high)
-window-width = 160
-window-height = 50
+cursor-style = block
+cursor-style-blink = true
+
+#keybind = global:cmd+ctrl+shift+j=toggle_visibility
+
+macos-option-as-alt = left
+keybind = alt+left=unbind
+keybind = alt+right=unbind
 
 # Fix backspace key issues
 term = xterm-256color
