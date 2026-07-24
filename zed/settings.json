@@ -131,7 +131,7 @@
     "dock": "bottom",
     "font_family": "BlexMono Nerd Font Mono",
   },
-  "vim_mode": true,
+  "vim_mode": false,
   "diagnostics": {
     "inline": {
       "enabled": true,

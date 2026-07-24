@@ -121,10 +121,12 @@ export PATH="$HOME/.local/bin:$PATH"
 
 alias ccs='~/code/claude-code-switcher/ccs'
 alias v='nvim'
+# eza with OSC 8 hyperlinks: file names become cmd-clickable in Ghostty
+alias ls='eza --hyperlink --group-directories-first'
+alias ll='eza --hyperlink --group-directories-first -lh'
+alias la='eza --hyperlink --group-directories-first -lah'
+alias lt='eza --hyperlink --group-directories-first --tree'
 alias claude-sandbox='nono run --profile claude-code -- claude --dangerously-skip-permissions'
-alias pi='nono run --profile pi -- pi'
-alias pi-yolo='/opt/homebrew/bin/pi'
-alias agy='nono run --profile agy -- agy --dangerously-skip-permissions'
 alias opencode='nono run --profile opencode -- opencode'
 # bun completions
 [ -s "/Users/dt/.bun/_bun" ] && source "/Users/dt/.bun/_bun"
