@@ -7,6 +7,13 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "tabs": {
+    "file_icons": true,
+    "git_status": false
+  },
+  "tab_bar": {
+    "show": true
+  },
   "cli_default_open_behavior": "new_window",
   "status_bar": {
     "active_language_button": true
@@ -15,7 +22,7 @@
   "icon_theme": {
     "mode": "dark",
     "light": "Zed (Default)",
-    "dark": "Catppuccin Mocha"
+    "dark": "Zed (Default)"
   },
   "lsp": {
     "vtsls": {
@@ -121,17 +128,19 @@
   "ui_font_family": ".ZedMono",
   "theme": {
     "mode": "dark",
-    "light": "Rosé Pine Dawn",
-    "dark": "Ayu Dark",
+    "light": "Drake Juejin",
+    "dark": "Catppuccin Mocha - No Italics",
   },
   "title_bar": {
+    "show_menus": false,
+    "show_branch_status_icon": true,
     "show_user_picture": false,
   },
   "terminal": {
     "dock": "bottom",
     "font_family": "BlexMono Nerd Font Mono",
   },
-  "vim_mode": false,
+  "vim_mode": true,
   "diagnostics": {
     "inline": {
       "enabled": true,

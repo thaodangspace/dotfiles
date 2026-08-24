@@ -142,24 +142,32 @@ if.app-id = 'com.mitchellh.ghostty'
 run = ["move-node-to-workspace 1"]
 
 [[on-window-detected]]
+if.app-id = 'com.googlecode.iterm2'
+run = ["move-node-to-workspace 1"]
+
+[[on-window-detected]]
 if.app-id = 'dev.zed.Zed'
+run = ["layout floating", "move-node-to-workspace 1"]
+
+[[on-window-detected]]
+if.app-id = 'com.google.Chrome'
+run = ["move-node-to-workspace 2"]
+
+[[on-window-detected]]
+if.app-id = 'org.mozilla.firefoxdeveloperedition'
 run = ["move-node-to-workspace 2"]
 
 [[on-window-detected]]
 if.app-id = 'abnerworks.Typora'
-run = ["layout floating", "move-node-to-workspace 2"]
+run = ["layout floating", "move-node-to-workspace 3"]
 
 [[on-window-detected]]
-if.app-id = 'com.DanPristupov.Fork'
-run = ["layout floating", "move-node-to-workspace 2"]
+if.app-id = 'com.apple.dt.Xcode'
+run = ["layout floating", "move-node-to-workspace 3"]
 
 [[on-window-detected]]
-if.app-id = 'com.google.Chrome'
-run = [ "move-node-to-workspace 3"]
-
-[[on-window-detected]]
-if.app-id = 'org.mozilla.firefoxdeveloperedition'
-run = ["move-node-to-workspace 3"]
+if.app-id = 'ru.keepcoder.Telegram'
+run = ["layout floating", "move-node-to-workspace 4"]
 
 [[on-window-detected]]
 if.app-id = 'com.tinyspeck.slackmacgap'
@@ -170,11 +178,15 @@ if.app-id = 'com.hnc.Discord'
 run = ["layout floating", "move-node-to-workspace 4"]
 
 [[on-window-detected]]
-if.app-id = 'ru.keepcoder.Telegram'
-run = ["layout floating", "move-node-to-workspace 4"]
+if.app-id = 'com.apple.Safari'
+run = ["layout floating", "move-node-to-workspace 5"]
 
 [[on-window-detected]]
-if.app-id = 'com.apple.Safari'
+if.app-id = 'com.moonlight-stream.Moonlight'
+run = ["layout floating", "move-node-to-workspace 5"]
+
+[[on-window-detected]]
+if.app-id = 'org.deskflow.deskflow'
 run = ["layout floating", "move-node-to-workspace 5"]
 
 [[on-window-detected]]
