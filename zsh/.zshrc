@@ -127,6 +127,7 @@ alias ll='eza --hyperlink --group-directories-first -lh'
 alias la='eza --hyperlink --group-directories-first -lah'
 alias lt='eza --hyperlink --group-directories-first --tree'
 alias claude-sandbox='nono run --profile claude-code -- claude --dangerously-skip-permissions'
+alias claude='claude --model claude-opus-4-8'
 # bun completions
 [ -s "/Users/dt/.bun/_bun" ] && source "/Users/dt/.bun/_bun"
 
