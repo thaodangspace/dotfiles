@@ -129,7 +129,7 @@
   "theme": {
     "mode": "dark",
     "light": "Drake Juejin",
-    "dark": "Gruvbox Dark Hard",
+    "dark": "Ayu Dark",
   },
   "title_bar": {
     "show_menus": false,
