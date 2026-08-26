@@ -20,7 +20,7 @@
   },
   "proxy": "",
   "icon_theme": {
-    "mode": "dark",
+    "mode": "light",
     "light": "Zed (Default)",
     "dark": "Zed (Default)"
   },
@@ -123,13 +123,13 @@
       ]
     }
   ],
-  "ui_font_size": 16,
-  "buffer_font_size": 16,
+  "ui_font_size": 16.0,
+  "buffer_font_size": 18.0,
   "ui_font_family": ".ZedMono",
   "theme": {
     "mode": "dark",
     "light": "Drake Juejin",
-    "dark": "Catppuccin Mocha - No Italics",
+    "dark": "Gruvbox Dark Hard",
   },
   "title_bar": {
     "show_menus": false,
@@ -137,6 +137,7 @@
     "show_user_picture": false,
   },
   "terminal": {
+    "font_size": 16.0,
     "dock": "bottom",
     "font_family": "BlexMono Nerd Font Mono",
   },
