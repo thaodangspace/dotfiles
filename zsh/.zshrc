@@ -70,7 +70,7 @@ DISABLE_AUTO_TITLE="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-claude-code-shell)
+plugins=(git zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -118,18 +118,8 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$PATH:/Users/dt/.lmstudio/bin"
 # End of LM Studio CLI section
 export PATH="$HOME/.local/bin:$PATH"
-
-alias ccs='~/code/claude-code-switcher/ccs'
-alias v='nvim'
-# eza with OSC 8 hyperlinks: file names become cmd-clickable in Ghostty
-alias ls='eza --hyperlink --group-directories-first'
-alias ll='eza --hyperlink --group-directories-first -lh'
-alias la='eza --hyperlink --group-directories-first -lah'
-alias lt='eza --hyperlink --group-directories-first --tree'
-alias claude-sandbox='nono run --profile claude-code -- claude --dangerously-skip-permissions'
-alias claude='claude --model claude-opus-4-8'
 # bun completions
-[ -s "/Users/dt/.bun/_bun" ] && source "/Users/dt/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
@@ -138,9 +128,6 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # php@8.4
 export PATH="/opt/homebrew/opt/php@8.4/bin:$PATH"
 export PATH="/opt/homebrew/opt/php@8.4/sbin:$PATH"
-
-# zsh-autosuggestions
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Always show pwd in terminal tab/window title (instead of the running process)
 autoload -Uz add-zsh-hook
@@ -153,10 +140,10 @@ add-zsh-hook preexec _set_pwd_title
 
 
 # Added by Antigravity CLI installer
-export PATH="/Users/dt/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 # opencode
-export PATH=/Users/dt/.opencode/bin:$PATH
+export PATH=$HOME/.opencode/bin:$PATH
 
 # Go-installed binaries (go install ...)
 export PATH="$HOME/go/bin:$PATH"
