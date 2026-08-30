@@ -129,7 +129,7 @@
   "theme": {
     "mode": "dark",
     "light": "Drake Juejin",
-    "dark": "Ayu Dark",
+    "dark": "Solarized Osaka",
   },
   "title_bar": {
     "show_menus": false,
@@ -148,14 +148,14 @@
     },
   },
   "collaboration_panel": {
-    "dock": "right",
+    "dock": "left",
     "button": false,
   },
   "search": {
     "button": false,
   },
   "outline_panel": {
-    "dock": "right",
+    "dock": "left",
     "button": false,
   },
   "agent": {
