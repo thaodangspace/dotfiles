@@ -74,6 +74,10 @@ plugins=(git zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
+# zsh-autosuggestions: use an explicit dim color instead of ANSI 8 (bright black),
+# which the Solarized Osaka theme maps to the background color, making suggestions invisible.
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#586e75'
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -147,3 +151,6 @@ export PATH=$HOME/.opencode/bin:$PATH
 
 # Go-installed binaries (go install ...)
 export PATH="$HOME/go/bin:$PATH"
+
+alias v='nvim'
+alias claude='claude --model claude-opus-4-8'

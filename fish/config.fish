@@ -11,3 +11,5 @@ if status is-interactive
     # clear the terminal by accident (mirrors `bindkey -r '^K'` from zsh).
     bind --erase \ck 2>/dev/null
 end
+
+set -g fish_color_autosuggestion 586e75
