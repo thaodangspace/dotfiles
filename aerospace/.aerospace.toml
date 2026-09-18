@@ -146,6 +146,10 @@ if.app-id = 'com.googlecode.iterm2'
 run = ["move-node-to-workspace 1"]
 
 [[on-window-detected]]
+if.app-id = 'com.googlecode.com.flatty.Flatty'
+run = ["move-node-to-workspace 1"]
+
+[[on-window-detected]]
 if.app-id = 'dev.zed.Zed'
 run = ["layout floating", "move-node-to-workspace 1"]
 
