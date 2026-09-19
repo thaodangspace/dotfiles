@@ -3,7 +3,7 @@
 #
 # Called from the window_created signal in yabairc (and once per existing
 # window at startup). Windows of apps that have NO per-app rule in yabairc
-# (e.g. VS Code) are moved to <default-space> (default 7) instead of landing
+# (e.g. VS Code) are moved to <default-space> (default 5) instead of landing
 # on whatever space happens to be focused. With --follow, focus jumps to the
 # moved window (the signal passes it; the startup pass does not, so a yabai
 # restart never yanks you to that space).
@@ -17,7 +17,7 @@
 # addition; following it is delegated to focus-space.sh.
 set -u
 wid="${1:?usage: route.sh <window-id> [default-space] [--follow]}"
-default_space="${2:-7}"
+default_space="${2:-5}"
 follow=0; [ "${3:-}" = "--follow" ] && follow=1
 
 # Window may already be gone (short-lived popups) -> nothing to do.

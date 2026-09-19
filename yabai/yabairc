@@ -32,8 +32,9 @@ yabai -m config                                 \
     window_placement             second_child   \
     window_insertion_point       focused        \
     window_zoom_persist          on             \
-    skip_window_focus_animation  on             `# recommended when the scripting addition is not loaded` \
-    window_animation_duration    0.0            \
+    skip_window_focus_animation  off            `# SA loaded (macOS 27 fork build) -> animations render` \
+    window_animation_duration    0.15           `# frame move/resize animation; 0.0 disables` \
+    window_animation_easing      ease_out_quint \
     window_opacity               off            \
     insert_feedback_color        0xffd75f5f     \
     split_ratio                  0.50           \
@@ -105,7 +106,7 @@ yabai -m rule --apply
 # to exist in Mission Control; route.sh
 # logs to /tmp/yabai_$USER.err.log and leaves the window alone otherwise.
 # ---------------------------------------------------------------------------
-UNROUTED_SPACE=7
+UNROUTED_SPACE=5
 yabai -m signal --add label=route-unconfigured event=window_created \
     action="~/.config/yabai/route.sh \"\$YABAI_WINDOW_ID\" $UNROUTED_SPACE --follow"
 
