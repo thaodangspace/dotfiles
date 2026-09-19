@@ -15,11 +15,13 @@ brew bundle install
 
 # Deploy all configurations using stow
 stow -t ~/.config/nvim nvim
-stow -t ~/.config/sketchybar sketchybar
 stow -t ~/.config/ghostty ghostty
 stow -t ~/.config/scripts scripts
 stow -t ~/.qutebrowser qutebrowser
-stow -t ~ aerospace
+mkdir -p ~/.config/yabai ~/.config/skhd
+stow -t ~/.config/yabai yabai
+stow -t ~/.config/skhd skhd
+stow -t ~ aerospace   # legacy fallback, do not run alongside yabai
 stow -t ~ zsh
 stow -t ~ wezterm
 stow -t ~ tmux
@@ -32,8 +34,8 @@ stow -t ~/.config/fish fish
 ### Individual Configuration Deployment
 Use `stow -t <target> <package>` to deploy specific configurations:
 - `stow -t ~/.config/nvim nvim` - Deploy Neovim configuration
-- `stow -t ~/.config/sketchybar sketchybar` - Deploy SketchyBar status bar
-- `stow -t ~ aerospace` - Deploy AeroSpace window manager config
+- `stow -t ~/.config/yabai yabai` / `stow -t ~/.config/skhd skhd` - Deploy yabai + skhd (see Window Manager below)
+- `stow -t ~ aerospace` - Deploy the legacy AeroSpace config (fallback only)
 - `stow -t ~/.config/fish fish` - Deploy Fish shell config (see Fish Shell below)
 
 ## Architecture
@@ -41,8 +43,9 @@ Use `stow -t <target> <package>` to deploy specific configurations:
 ### Core Components
 
 **Window Management & UI**
-- `aerospace/` - AeroSpace tiling window manager configuration
-- `sketchybar/` - macOS status bar with custom plugins and Aerospace integration
+- `yabai/` - yabai tiling window manager config (`yabairc`: settings, app rules, SA load) plus `focus-space.sh`, `route.sh`, `update-sudoers.sh`; `yabai/README.md` documents the SIP/scripting-addition setup
+- `skhd/` - skhd hotkeys for yabai (`skhdrc`), same alt-based bindings the AeroSpace config had
+- `aerospace/` - Previous AeroSpace config, kept as a fallback (not active)
 - `tmux/` - Terminal multiplexer configuration
 - `yazi/` - File manager configuration
 
@@ -64,12 +67,40 @@ Use `stow -t <target> <package>` to deploy specific configurations:
 
 The repository follows a modular approach where each application has its own directory containing all necessary configuration files. GNU Stow creates symlinks from these directories to the appropriate system locations.
 
-### SketchyBar Integration
+### Window Manager (yabai + skhd)
 
-SketchyBar is configured to integrate with AeroSpace window manager:
-- Workspace switching notifications via `exec-on-workspace-change`
-- Custom plugins in `sketchybar/plugins/` for system information (battery, memory, clock, etc.)
-- Aerospace-specific plugins for workspace and window management
+yabai (from the `asmvik/formulae` tap, the new home of koekeishiya/yabai) replaced
+AeroSpace. skhd provides the hotkeys. Both run as launchd services:
+
+- `yabai --start-service` / `yabai --restart-service` — yabai reads `~/.config/yabai/yabairc`
+- `skhd --start-service` / `skhd --reload` — skhd reads `~/.config/skhd/skhdrc`
+- Logs: `/tmp/yabai_$USER.err.log`, `/tmp/skhd_$USER.err.log`
+- Both need Accessibility permission (System Settings → Privacy & Security → Accessibility).
+
+SIP is partially disabled (`--without fs --without debug --without nvram`,
+`boot-args=-arm64e_preview_abi`) and `yabairc` loads the scripting addition
+(SA) via a passwordless `sudo yabai --load-sa` pinned to the binary's sha256 in
+`/private/etc/sudoers.d/yabai`. yabai 7.1.25's SA does not support macOS 27, so
+the Cellar binary is a build of the ImTheSquid/yabai fork (macOS 27 offsets);
+the brew original is kept next to it as `yabai.brew-original`. **After any
+change of the yabai binary** (brew upgrade, rebuild) run
+`yabai/update-sudoers.sh` and remove/re-add yabai in Accessibility — otherwise
+yabai aborts with "could not access accessibility features" or the SA silently
+does nothing. Full procedure in `yabai/README.md`.
+
+`alt-N` runs `yabai/focus-space.sh`: `yabai -m space --focus N` (instant with
+the SA), verified, else focus a window on the target space, else the native
+ctrl-N Mission Control shortcut (enabled via `com.apple.symbolichotkeys`, ids
+118–126). Workspaces are plain Mission Control spaces and must exist (display 1:
+1–5, display 2: 6–7). `yabai/route.sh` (signal `window_created`) moves windows
+of apps without a per-app rule to space 7 and follows them; it reads the rules
+back from `yabai -m rule --list`, so add apps only in `yabairc`.
+
+Mapping from the old AeroSpace config: `[[on-window-detected]]` → `yabai -m rule`
+(matched on app *name*, not bundle id; everything floats by default and the
+per-app rules re-enable tiling), `[mode.main.binding]` → `skhdrc`,
+`[mode.service.binding]` → the skhd `service` mode (`alt-shift-;`), gaps →
+`window_gap` / `*_padding` / `external_bar`.
 
 ### Key Dependencies
 
@@ -78,8 +109,8 @@ From Brewfile, important tools include:
 - `fish` - Login shell (Fisher for plugins, Tide for the prompt)
 - `neovim` - Primary editor
 - `tmux` - Terminal multiplexer  
-- `sketchybar` - Status bar
-- `aerospace` - Window manager
+- `asmvik/formulae/yabai` + `asmvik/formulae/skhd` - Window manager and hotkeys
+- `jq` - used by `yabai/focus-space.sh`, `yabai/route.sh` and skhd bindings
 - Development tools: `go`, `node`, `python@3.13`, `uv`
 
 ## Development Commands
@@ -91,8 +122,7 @@ See `nvim/CLAUDE.md` for detailed Neovim-specific guidance including:
 
 ### Configuration Testing
 - Restart applications after making changes to test configurations
-- For SketchyBar: `brew services restart sketchybar`
-- For AeroSpace: restart or reload with AeroSpace commands
+- For yabai: `yabai --restart-service`; for skhd: `skhd --reload`
 
 ### Fish Shell
 
@@ -124,4 +154,4 @@ Utility scripts in `scripts/` directory:
 - Zed editor is configured with vim mode enabled and system theme switching
 - Terminal configurations prioritize Nerd Font support (BlexMono, Hack Nerd Font)
 - All configurations assume macOS environment with Homebrew package management
-- Window management relies on AeroSpace + SketchyBar integration for workspace awareness
+- Window management relies on yabai + skhd; workspaces are plain Mission Control spaces

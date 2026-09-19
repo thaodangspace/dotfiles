@@ -4,18 +4,44 @@
 
 ```shell
 stow -t ~/.config/nvim nvim
-stow -t ~/.config/sketchybar sketchybar
 stow -t ~/.config/ghostty ghostty
 stow -t ~/.config/scripts scripts
 stow -t ~/.config/kitty kitty
 stow -t ~/.qutebrowser qutebrowser
-stow -t ~ aerospace
+mkdir -p ~/.config/yabai ~/.config/skhd
+stow -t ~/.config/yabai yabai
+stow -t ~/.config/skhd skhd
+stow -t ~ aerospace   # legacy fallback, not used with yabai
 stow -t ~ zsh
 stow -t ~ wezterm
 stow -t ~ tmux
 stow -t ~/.claude/commands commands
 stow -t ~/.pi/agent/prompts commands
 ```
+
+### yabai + skhd (window manager)
+
+```shell
+brew install asmvik/formulae/yabai asmvik/formulae/skhd jq
+mkdir -p ~/.config/yabai ~/.config/skhd
+stow -t ~/.config/yabai yabai
+stow -t ~/.config/skhd skhd
+yabai --start-service
+skhd --start-service
+# grant Accessibility to both when macOS asks, then:
+yabai --restart-service; skhd --reload
+# enable the native ctrl-1..9 "Switch to Desktop" shortcuts (alt-N falls back to them)
+yabai/enable-desktop-hotkeys.sh
+```
+
+SIP is partially disabled and the scripting addition is loaded (instant space
+switching, no animation). On macOS 27 this needs a fork build of yabai until an
+official release supports it; after any yabai binary change re-run
+`yabai/update-sudoers.sh` and re-add yabai in Accessibility. Details, recovery
+steps and checks: `yabai/README.md`. Bindings are the same as the old AeroSpace
+config: `alt-h/j/k/l` focus, `alt-shift-h/j/k/l` move, `alt-N` / `alt-shift-N`
+spaces, `alt-shift-f` fullscreen, `alt-shift-space` float, `alt-shift-;` service
+mode. Apps without a rule in `yabairc` are routed to space 7 (`yabai/route.sh`).
 
 ### Fish
 

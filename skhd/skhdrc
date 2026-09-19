@@ -1,0 +1,100 @@
+# skhd config — keybindings migrated 1:1 from aerospace/.aerospace.toml
+# Deployed with: stow -t ~/.config/skhd skhd
+# Reload: skhd --reload    (or shift-esc in service mode below)
+#
+# Key codes for punctuation (skhd has no literal for these):
+#   0x1B = minus   0x18 = equal   0x29 = semicolon   0x2C = slash   0x2B = comma
+
+# --- layouts ---------------------------------------------------------------
+# alt-slash = 'layout tiles horizontal vertical'
+alt - 0x2C : yabai -m space --layout bsp
+# alt-comma = 'layout accordion horizontal vertical'
+alt - 0x2B : yabai -m space --layout stack
+
+# --- focus (falls through to the neighbouring display at the edge) ---------
+alt - h : yabai -m window --focus west  || yabai -m display --focus west
+alt - j : yabai -m window --focus south || yabai -m display --focus south
+alt - k : yabai -m window --focus north || yabai -m display --focus north
+alt - l : yabai -m window --focus east  || yabai -m display --focus east
+
+# --- move (aerospace 'move <dir>'; swaps with the neighbour, or crosses displays) ---
+alt + shift - h : yabai -m window --swap west  || yabai -m window --display west  --focus
+alt + shift - j : yabai -m window --swap south || yabai -m window --display south --focus
+alt + shift - k : yabai -m window --swap north || yabai -m window --display north --focus
+alt + shift - l : yabai -m window --swap east  || yabai -m window --display east  --focus
+
+# --- resize (aerospace 'resize smart ∓50') --------------------------------
+alt + shift - 0x1B : yabai -m window --resize right:-50:0 || yabai -m window --resize left:50:0   || yabai -m window --resize bottom:0:-50 || yabai -m window --resize top:0:50
+alt + shift - 0x18 : yabai -m window --resize right:50:0  || yabai -m window --resize left:-50:0  || yabai -m window --resize bottom:0:50  || yabai -m window --resize top:0:-50
+
+# --- workspaces (macOS spaces) ---------------------------------------------
+# `yabai -m space --focus N` is a silent no-op without the scripting addition
+# on macOS 27, so ~/.config/yabai/focus-space.sh focuses a window on the
+# target space and falls back to the native ctrl-N Mission Control shortcut.
+alt - 1 : ~/.config/yabai/focus-space.sh 1
+alt - 2 : ~/.config/yabai/focus-space.sh 2
+alt - 3 : ~/.config/yabai/focus-space.sh 3
+alt - 4 : ~/.config/yabai/focus-space.sh 4
+alt - 5 : ~/.config/yabai/focus-space.sh 5
+alt - 6 : ~/.config/yabai/focus-space.sh 6
+alt - 7 : ~/.config/yabai/focus-space.sh 7
+alt - 8 : ~/.config/yabai/focus-space.sh 8
+alt - 9 : ~/.config/yabai/focus-space.sh 9
+
+# alt-shift-N = 'move-node-to-workspace N' (does not follow the window)
+alt + shift - 1 : yabai -m window --space 1
+alt + shift - 2 : yabai -m window --space 2
+alt + shift - 3 : yabai -m window --space 3
+alt + shift - 4 : yabai -m window --space 4
+alt + shift - 5 : yabai -m window --space 5
+alt + shift - 6 : yabai -m window --space 6
+alt + shift - 7 : yabai -m window --space 7
+alt + shift - 8 : yabai -m window --space 8
+alt + shift - 9 : yabai -m window --space 9
+
+# alt-tab = 'workspace-back-and-forth'  (was commented out in aerospace too)
+# alt - tab : ~/.config/yabai/focus-space.sh recent
+# alt - 0x21 : ~/.config/yabai/focus-space.sh prev    # alt-[
+# alt - 0x1E : ~/.config/yabai/focus-space.sh next    # alt-]
+
+# alt-shift-tab = 'move-workspace-to-monitor next'
+# Moving a whole *space* between displays needs the scripting addition (SIP),
+# so this moves the focused window to the next display instead.
+alt + shift - tab : yabai -m window --display next --focus || yabai -m window --display first --focus
+
+# alt-shift-f = 'fullscreen'
+alt + shift - f : yabai -m window --toggle zoom-fullscreen
+# alt-shift-space = 'layout floating tiling'
+alt + shift - space : yabai -m window --toggle float
+
+# --- service mode (aerospace [mode.service.binding]) ----------------------
+# '@' captures every keypress while in the mode, like aerospace binding modes.
+# skhd can't run a command *and* switch mode in one binding, so each action
+# ends with `skhd -k escape`, which triggers the `escape ; default` binding.
+:: default
+:: service @
+alt + shift - 0x29 ; service
+service < escape ; default
+
+# r = flatten-workspace-tree (reset layout)
+service < r : yabai -m space --balance; skhd -k escape
+# f = toggle floating/tiling
+service < f : yabai -m window --toggle float; skhd -k escape
+# backspace = close-all-windows-but-current
+service < backspace : yabai -m query --windows --space | jq -r '.[] | select(."has-focus" == false) | .id' | xargs -n1 -I{} yabai -m window {} --close; skhd -k escape
+# shift-escape = reload-config (aerospace used plain esc; esc here just leaves the mode)
+service < shift - escape : yabai --restart-service; skhd --reload
+
+# join-with <dir>  → re-insert the focused window splitting its neighbour
+service < alt + shift - h : yabai -m window --warp west;  skhd -k escape
+service < alt + shift - j : yabai -m window --warp south; skhd -k escape
+service < alt + shift - k : yabai -m window --warp north; skhd -k escape
+service < alt + shift - l : yabai -m window --warp east;  skhd -k escape
+
+# volume (stays in the mode, like aerospace)
+service < down : osascript -e 'set volume output volume ((output volume of (get volume settings)) - 6)'
+service < up   : osascript -e 'set volume output volume ((output volume of (get volume settings)) + 6)'
+service < shift - down : osascript -e 'set volume output volume 0'; skhd -k escape
+
+# p = play/pause
+service < p : nowplaying-cli togglePlayPause; skhd -k escape

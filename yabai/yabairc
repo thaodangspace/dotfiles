@@ -1,0 +1,118 @@
+#!/usr/bin/env sh
+# yabai config — migrated from aerospace/.aerospace.toml
+# Deployed with: stow -t ~/.config/yabai yabai
+# Keybindings live in skhd/skhdrc (stow -t ~/.config/skhd skhd).
+#
+# SIP is partially disabled (csrutil enable --without fs --without debug
+# --without nvram; nvram boot-args=-arm64e_preview_abi), so the scripting
+# addition (SA) can be loaded. `sudo yabai --load-sa` runs without a password
+# via /private/etc/sudoers.d/yabai, which pins the sha256 of the yabai binary:
+# after EVERY `brew upgrade yabai` (or a manual binary swap) re-run
+# ~/.config/yabai/update-sudoers.sh, otherwise --load-sa silently fails.
+#
+# macOS 27.0 note: the stock 7.1.25 SA payload only knows macOS <= 26, so with
+# the brew binary the SA is a no-op (asmvik/yabai#2800, #2802, #2822). Until an
+# official release ships, the binary in the Cellar is swapped for a build of
+# ImTheSquid/yabai (offsets for macOS 27). Everything below degrades
+# gracefully when the SA is not actually working: focus-space.sh and route.sh
+# fall back to focusing a window on the target space.
+yabai -m signal --add label=reload-sa event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa || echo "yabairc: 'sudo yabai --load-sa' failed (sudoers hash stale? run ~/.config/yabai/update-sudoers.sh) - running without the scripting addition" >&2
+
+# ---------------------------------------------------------------------------
+# Global settings (aerospace equivalents in comments)
+# ---------------------------------------------------------------------------
+yabai -m config                                 \
+    external_bar                 off:0:0        \
+    menubar_opacity              1.0            \
+    mouse_follows_focus          off            \
+    focus_follows_mouse          off            \
+    display_arrangement_order    default        \
+    window_origin_display        default        \
+    window_placement             second_child   \
+    window_insertion_point       focused        \
+    window_zoom_persist          on             \
+    skip_window_focus_animation  on             `# recommended when the scripting addition is not loaded` \
+    window_animation_duration    0.0            \
+    window_opacity               off            \
+    insert_feedback_color        0xffd75f5f     \
+    split_ratio                  0.50           \
+    split_type                   auto           `# default-root-container-orientation = 'auto'` \
+    auto_balance                 off            \
+    top_padding                  10             `# gaps.outer.top (below the menu bar; was 40 when a status bar sat there)` \
+    bottom_padding               10             `# gaps.outer.bottom = 10` \
+    left_padding                 10             `# gaps.outer.left   = 10` \
+    right_padding                10             `# gaps.outer.right  = 10` \
+    window_gap                   5              `# gaps.inner.* = 5` \
+    layout                       bsp            `# default-root-container-layout = 'tiles'` \
+    mouse_modifier               fn             \
+    mouse_action1                move           \
+    mouse_action2                resize         \
+    mouse_drop_action            swap
+
+# ---------------------------------------------------------------------------
+# Rules (aerospace [[on-window-detected]]). Later rules override earlier ones
+# for the same property, so the catch-all "float everything" rule goes first
+# and the per-app rules re-enable tiling where aerospace tiled.
+# yabai matches on the app *name* (regex), not the bundle id.
+# ---------------------------------------------------------------------------
+yabai -m rule --add label=float-default  app=".*"                          manage=off
+
+# rule <label> <app-regex> <space> <manage>
+# Spaces are plain Mission Control spaces (create them in Mission Control;
+# yabai could create them via the SA but we keep the set fixed). `rule --add space=N` fails outright if space N does not exist, which
+# would also drop the manage= part, so fall back to a rule without space=
+# and say so in /tmp/yabai_$USER.err.log.
+rule() {
+    label=$1 app=$2 space=$3 manage=$4
+    if yabai -m query --spaces --space "$space" >/dev/null 2>&1; then
+        yabai -m rule --add label="$label" app="$app" space="$space" manage="$manage"
+    else
+        echo "yabairc: space $space does not exist, rule '$label' added without space= (create the space in Mission Control, then: yabai --restart-service)" >&2
+        yabai -m rule --add label="$label" app="$app" manage="$manage"
+    fi
+}
+
+# workspace 1 — terminals / editors
+rule ghostty      '^Ghostty$'                   1 on
+rule iterm2       '^iTerm2$'                    1 on
+rule flatty       '^Flatty$'                    1 on
+rule zed          '^Zed$'                       1 off
+# workspace 2 — browsers
+rule chrome       '^Google Chrome$'             2 on
+rule firefox-dev  '^Firefox Developer Edition$' 2 on
+# workspace 3 — writing / xcode (floating)
+rule typora       '^Typora$'                    3 off
+rule xcode        '^Xcode$'                     3 off
+# workspace 4 — chat (floating)
+rule telegram     '^Telegram$'                  4 off
+rule slack        '^Slack$'                     4 off
+rule discord      '^Discord$'                   4 off
+# workspace 5 — misc (floating)
+rule safari       '^Safari$'                    5 off
+rule moonlight    '^Moonlight$'                 5 off
+rule deskflow     '^Deskflow$'                  5 off
+
+# Apply rules to windows that already exist when yabai (re)starts.
+yabai -m rule --apply
+
+# ---------------------------------------------------------------------------
+# Unconfigured apps -> one shared space.
+# Any app without a per-app rule above (e.g. VS Code) gets its windows moved
+# to space $UNROUTED_SPACE by route.sh. The script reads the rules back from
+# yabai, so the list above stays the single source of truth. Those windows
+# still float because of float-default. Like the rules, this needs the space
+# to exist in Mission Control; route.sh
+# logs to /tmp/yabai_$USER.err.log and leaves the window alone otherwise.
+# ---------------------------------------------------------------------------
+UNROUTED_SPACE=7
+yabai -m signal --add label=route-unconfigured event=window_created \
+    action="~/.config/yabai/route.sh \"\$YABAI_WINDOW_ID\" $UNROUTED_SPACE --follow"
+
+# Route windows that already exist when yabai (re)starts (no --follow, so a
+# restart does not switch you to that space).
+for wid in $(yabai -m query --windows | jq -r '.[].id'); do
+    ~/.config/yabai/route.sh "$wid" "$UNROUTED_SPACE"
+done
+
+echo "yabai configuration loaded.."
