@@ -153,13 +153,10 @@ export PATH=$HOME/.opencode/bin:$PATH
 export PATH="$HOME/go/bin:$PATH"
 
 alias v='nvim'
-alias claude='claude --model claude-opus-4-8'
+# alias claude='claude --model claude-opus-4-8'
 alias claude-fable='claude --model claude-fable-5-1'
 alias pi='pi --model openai-codex/gpt-5.6-sol --thinking low'
 alias pi-gemini='pi --model google-antigravity/antigravity-gemini-3.8-flash --thinking xhigh'
-alias ff='open -a "Firefox Developer Edition" --args \
-  --profile "/Users/dt/Library/Application Support/Firefox/Profiles/34up2mwe.dev-edition-default-1754375592719" \
-  --remote-debugging-port 9222'
 
 # pnpm
 export PNPM_HOME="/Users/dt/Library/pnpm"
@@ -168,4 +165,3 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
-#

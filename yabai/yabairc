@@ -93,6 +93,8 @@ rule discord      '^Discord$'                   4 off
 rule safari       '^Safari$'                    5 off
 rule moonlight    '^Moonlight$'                 5 off
 rule deskflow     '^Deskflow$'                  5 off
+# workspace 6 — edge (com.microsoft.edgemac)
+rule edge         '^Microsoft Edge$'            6 on
 
 # Apply rules to windows that already exist when yabai (re)starts.
 yabai -m rule --apply
