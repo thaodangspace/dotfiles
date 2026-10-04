@@ -1,0 +1,105 @@
+onboarding = false
+[theme]
+name = "terminal"
+auto_switch = false
+
+[ui]
+agent_panel_sort = "priority"
+
+###########################
+#  Key Bindings — ported from tmux/.tmux.conf
+###########################
+# Same prefix as tmux (C-j). Bindings with no herdr equivalent are listed at
+# the bottom. Actions not mentioned here keep herdr's defaults (prefix+?).
+status_indicators = "symbols"
+[keys]
+prefix = "ctrl+j"
+
+# tmux: bind r source-file ~/.tmux.conf  (herdr default: prefix+shift+r)
+reload_config = "prefix+r"
+# resize mode moves off r to make room for reload
+resize_mode = "prefix+shift+r"
+
+# tmux: bind Tab previous-window
+previous_tab = ["prefix+tab", "prefix+p"]
+# tmux: bind ^J select-pane -t :.+  herdr reserves prefix+prefix (sends a
+# literal ctrl+j), and prefix+tab is taken by previous_tab, so use space.
+cycle_pane_next = "prefix+space"
+
+# tmux: bind | split-window -h / bind - split-window -v
+split_vertical = "prefix+|"
+split_horizontal = "prefix+minus"
+
+# tmux: bind -r < / > swap-window ±1
+move_tab_previous = "prefix+<"
+move_tab_next = "prefix+>"
+
+# tmux: bind -r H/J/K/L resize-pane
+resize_pane_left = "prefix+shift+h"
+resize_pane_down = "prefix+shift+j"
+resize_pane_up = "prefix+shift+k"
+resize_pane_right = "prefix+shift+l"
+# herdr's swap-pane defaults used shift+hjkl; move them to alt
+swap_pane_left = "prefix+alt+h"
+swap_pane_down = "prefix+alt+j"
+swap_pane_up = "prefix+alt+k"
+swap_pane_right = "prefix+alt+l"
+
+# tmux: bind w -> tmux-window-manager fuzzy window switcher
+goto = "prefix+w"
+workspace_picker = "prefix+g"
+
+# tmux built-in defaults that herdr binds elsewhere
+detach = ["prefix+d", "prefix+q"]      # tmux d: detach-client
+rename_tab = ["prefix+comma", "prefix+shift+t"]   # tmux ,: rename-window
+rename_workspace = ["prefix+$", "prefix+shift+w"] # tmux $: rename-session
+close_tab = ["prefix+ampersand", "prefix+shift+x"] # tmux &: kill-window
+last_pane = "prefix+semicolon"         # tmux ;: last-pane
+previous_workspace = "prefix+("        # tmux (: previous session
+next_workspace = "prefix+)"            # tmux ): next session
+
+# tmux: bind f display-popup -w 80% -h 80%
+[[keys.command]]
+key = "prefix+f"
+type = "popup"
+command = "exec \"${SHELL:-sh}\""
+description = "floating terminal"
+width = "80%"
+height = "80%"
+
+# tmux: bind a display-popup -x R -y 0 -w 45% -h 30% -d pane_current_path
+# herdr popups are always centered; cwd follows the focused pane.
+[[keys.command]]
+key = "prefix+a"
+type = "popup"
+command = "cd \"${HERDR_ACTIVE_PANE_CWD:-$PWD}\" && exec \"${SHELL:-sh}\""
+description = "small floating terminal"
+width = "45%"
+height = "30%"
+
+# tmux: bind v display-popup ... nvim  (herdr's split_vertical moved to prefix+|)
+[[keys.command]]
+key = "prefix+v"
+type = "popup"
+command = "cd \"${HERDR_ACTIVE_PANE_CWD:-$PWD}\" && exec nvim"
+description = "neovim popup"
+width = "80%"
+height = "80%"
+
+# tmux: bind t split-window -p 25  (herdr splits can't take a size; this opens
+# a temporary pane that closes when the shell exits)
+[[keys.command]]
+key = "prefix+t"
+type = "pane"
+command = "exec \"${SHELL:-sh}\""
+description = "temporary terminal pane"
+
+# Not ported (no herdr equivalent):
+# - bind S swap-window with a prompted index
+# - bind C-p paste-buffer (herdr copies to the system clipboard; paste with cmd+v)
+# - bind C-k send-keys '' (unbound prefix+ctrl+k already does nothing)
+# - copy-mode-vi v / y / V / Escape (herdr copy mode already uses v, y, V, Esc)
+# - bind -r repeat: use resize mode (prefix+shift+r) for repeated resizing
+
+[ui.toast]
+delivery = "terminal"

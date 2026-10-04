@@ -77,12 +77,12 @@ rule() {
 # workspace 1 — terminals / editors
 rule ghostty      '^Ghostty$'                   1 on
 rule iterm2       '^iTerm2$'                    1 on
-rule flatty       '^Flatty$'                    1 on
-rule zed          '^Zed$'                       1 off
+rule flatty       '^Flatty$'                    1 off
 # workspace 2 — browsers
-rule chrome       '^Google Chrome$'             2 on
-rule firefox-dev  '^Firefox Developer Edition$' 2 on
-# workspace 3 — writing / xcode (floating)
+rule chrome       '^Google Chrome$'             2 off
+rule firefox-dev  '^Firefox Developer Edition$' 2 off
+# workspace 3 — writing / xcode / zed (floating)
+rule zed          '^Zed$'                       3 off
 rule typora       '^Typora$'                    3 off
 rule xcode        '^Xcode$'                     3 off
 # workspace 4 — chat (floating)

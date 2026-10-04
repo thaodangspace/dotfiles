@@ -25,6 +25,8 @@ stow -t ~ aerospace   # legacy fallback, do not run alongside yabai
 stow -t ~ zsh
 stow -t ~ wezterm
 stow -t ~ tmux
+mkdir -p ~/.config/herdr
+stow -t ~/.config/herdr herdr   # keybindings ported from tmux/.tmux.conf
 
 # Fish: pre-create real dirs so stow links files, not whole directories
 mkdir -p ~/.config/fish/{conf.d,functions,completions}
