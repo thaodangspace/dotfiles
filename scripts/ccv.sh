@@ -17,7 +17,7 @@
 set -uo pipefail
 
 CCV_ROOT="${CCV_ROOT:-$HOME/CLAUDE_CONFIG_DIR}"
-CCV_THRESHOLD="${CCV_THRESHOLD:-90}" # % above which an account counts as exhausted
+CCV_THRESHOLD="${CCV_THRESHOLD:-99}" # % above which an account counts as exhausted
 USAGE_URL="https://api.anthropic.com/api/oauth/usage"
 
 status_only=0
