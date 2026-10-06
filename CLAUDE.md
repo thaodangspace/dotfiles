@@ -27,10 +27,6 @@ stow -t ~ wezterm
 stow -t ~ tmux
 mkdir -p ~/.config/herdr
 stow -t ~/.config/herdr herdr   # keybindings ported from tmux/.tmux.conf
-
-# Fish: pre-create real dirs so stow links files, not whole directories
-mkdir -p ~/.config/fish/{conf.d,functions,completions}
-stow -t ~/.config/fish fish
 ```
 
 ### Individual Configuration Deployment
@@ -38,7 +34,7 @@ Use `stow -t <target> <package>` to deploy specific configurations:
 - `stow -t ~/.config/nvim nvim` - Deploy Neovim configuration
 - `stow -t ~/.config/yabai yabai` / `stow -t ~/.config/skhd skhd` - Deploy yabai + skhd (see Window Manager below)
 - `stow -t ~ aerospace` - Deploy the legacy AeroSpace config (fallback only)
-- `stow -t ~/.config/fish fish` - Deploy Fish shell config (see Fish Shell below)
+- `stow -t ~ zsh` - Deploy the zsh config (see Zsh Shell below)
 
 ## Architecture
 
@@ -52,8 +48,8 @@ Use `stow -t <target> <package>` to deploy specific configurations:
 - `yazi/` - File manager configuration
 
 **Shell**
-- `fish/` - Fish shell (login shell), Fisher plugin manager, Tide prompt
-- `zsh/` - Previous zsh + oh-my-zsh + starship config, kept for fallback
+- `zsh/` - zsh (login shell): oh-my-zsh + starship, `.zshrc` stowed to `~`
+- `fish/` - Previous Fish + Fisher + Tide config, kept as a fallback (not active)
 
 **Development Environment** 
 - `nvim/` - Neovim configuration using LazyVim distribution (has its own CLAUDE.md)
@@ -108,7 +104,7 @@ per-app rules re-enable tiling), `[mode.main.binding]` → `skhdrc`,
 
 From Brewfile, important tools include:
 - `stow` - Configuration deployment
-- `fish` - Login shell (Fisher for plugins, Tide for the prompt)
+- `starship` - zsh prompt (oh-my-zsh itself is installed outside Homebrew)
 - `neovim` - Primary editor
 - `tmux` - Terminal multiplexer  
 - `asmvik/formulae/yabai` + `asmvik/formulae/skhd` - Window manager and hotkeys
@@ -126,30 +122,24 @@ See `nvim/CLAUDE.md` for detailed Neovim-specific guidance including:
 - Restart applications after making changes to test configurations
 - For yabai: `yabai --restart-service`; for skhd: `skhd --reload`
 
-### Fish Shell
+### Zsh Shell
 
-Fish is the login shell (`/opt/homebrew/bin/fish`); `zsh/` is kept as a fallback.
+zsh is the login shell (`/bin/zsh`); `fish/` is kept as a fallback and is not
+deployed (to restore it see git history of this file).
 
-- Plugins are managed by **Fisher**, declared in `fish/fish_plugins`. Add one with
-  `fisher install <owner>/<repo>` and commit the updated `fish_plugins`; `fisher update`
-  installs everything in the manifest.
-- The prompt is **Tide** (Lean, two-line). Tide's settings live in fish *universal*
-  variables (`~/.config/fish/fish_variables`), which is untracked machine state — change
-  the prompt with `tide configure`, and mirror any change you want to keep into
-  `fish/tide-setup.fish` so other machines reproduce it.
-- Only `config.fish`, `conf.d/`, `functions/fish_title.fish`, `fish_plugins` and
-  `tide-setup.fish` are tracked. Everything else fisher writes into `~/.config/fish`
-  (tide's ~60 `_tide_*` functions, `completions/`, `conf.d/_tide_init.fish`) is
-  generated and must stay out of the repo.
-- New PATH entries go in `fish/conf.d/00-path.fish` via `fish_add_path -gP`, which
-  silently skips directories that don't exist. Use `-g` (global), never `-U`
-  (universal), so PATH is re-derived cleanly each session.
-- Changes to `conf.d/` take effect in new shells; `exec fish` reloads the current one.
+- `zsh/.zshrc` is stowed to `~/.zshrc` and loads oh-my-zsh (`plugins=(git
+  zsh-autosuggestions)`), then the starship prompt.
+- PATH entries and aliases go directly in `zsh/.zshrc`.
+- Claude Code accounts are `cc_*` aliases there, one `CLAUDE_CONFIG_DIR` under
+  `~/CLAUDE_CONFIG_DIR/` each; `ccv` (see Script Management) reads that alias
+  list, so add accounts only as aliases.
+- Changes take effect in new shells; `exec zsh` reloads the current one.
 
 ### Script Management
 Utility scripts in `scripts/` directory:
 - `float_ghostty.sh` - Create floating Ghostty terminal windows
 - `float_qutebrowser.sh` - Create floating Qutebrowser windows
+- `ccv.sh` - `ccv` alias: start Claude Code with the `cc_*` account (from `zsh/.zshrc`) that has the most usage left; `ccv --status` prints the table
 
 ## Configuration Notes
 

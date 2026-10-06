@@ -153,6 +153,14 @@ export PATH=$HOME/.opencode/bin:$PATH
 export PATH="$HOME/go/bin:$PATH"
 
 alias v='nvim'
+alias cc_antoni_vseelab='CLAUDE_CONFIG_DIR=$HOME/CLAUDE_CONFIG_DIR/claude_antoni_vseelab claude'
+alias cc_antoni_vseeio='CLAUDE_CONFIG_DIR=$HOME/CLAUDE_CONFIG_DIR/cc_antoni_vseeio claude'
+alias cc_thao_vsee='CLAUDE_CONFIG_DIR=$HOME/CLAUDE_CONFIG_DIR/cc_thao_vsee claude'
+alias cc_toan_vsee='CLAUDE_CONFIG_DIR=$HOME/CLAUDE_CONFIG_DIR/cc_toan_vsee claude'
+alias cc_thuy_vsee='CLAUDE_CONFIG_DIR=$HOME/CLAUDE_CONFIG_DIR/cc_thuy_vsee claude'
+alias cc_nhan_vseelab='CLAUDE_CONFIG_DIR=$HOME/CLAUDE_CONFIG_DIR/cc_nhan_vseelab claude'
+# ccv: start claude with whichever cc_* account above still has usage (ccv --status to just look)
+alias ccv='~/.config/scripts/ccv.sh'
 
 # pnpm
 export PNPM_HOME="/Users/dt/Library/pnpm"
